@@ -1,0 +1,100 @@
+\documentclass[10pt,a4paper,sans]{moderncv}
+
+%% ModernCV themes
+\moderncvstyle{classic}
+\moderncvcolor{black}
+\renewcommand{\familydefault}{\sfdefault}
+\nopagenumbers{}
+
+%% Character encoding
+\usepackage[utf8]{inputenc}
+
+%% Adjust the page margins
+\usepackage[scale=0.85]{geometry}
+\usepackage{tabularx}
+%% Personal data
+\name{Coen}{D. Needell}
+\address{6120 S. Ellis Ave, 2 South}{60637 Chicago, IL} 
+\mobile{+1~(970)~456~2411}
+\email{coen@needell.co}
+\social[github]{SoyBison}
+\social[linkedin]{coen-needell-b4503216a}
+\homepage{coen.needell.com}
+\photo[104pt][0.4pt]{avatar}
+
+
+%%------------------------------------------------------------------------------
+%% Content
+%%------------------------------------------------------------------------------
+
+\begin{document}
+\makecvtitle
+\section{Education}
+\cventry{2019 -- 2021}{Master of Arts in Computational Social Science}{University of Chicago}{Chicago, IL}{\linebreak GPA: 3.81}{Thesis on Deep Learning and Human Memory. In Progress.}
+\cventry{2015 -- 2019}{Bachelor of Arts in Economics and Physics}{Washington University in St. Louis}{ St. Louis, MO}{\linebreak GPA: 3.41}{Minor in the Philosophy of Science}
+
+\section{Experience}
+
+\cventry{2020}{Research Assistant}{\href{https://brainbridgelab.uchicago.edu/}{University of Chicago: Brain Bridge Lab}}{Chicago, IL.}{}{Researched the efficacy of deep learning techniques to estimate the probability that a subject will remember an image. Used these models to create a better understanding of the features of an image that are common among highly memorable images. Future work may include working with novel deep learning methods.}
+
+\cventry{2020}{Research Assistant}{\href{https://voices.uchicago.edu/memorylab/}{University of Chicago: Memory Lab}}{Chicago, IL.}{}{Developed an online experiment to generate pilot data for the development of a computer assisted testing program for cognitive decline. Built in JSPsych and tested on prolific and a selection of older adults through a partnership with Rush University, the experiment is designed to see if sufficient information about one's cognitive state can be extracted with a minimal amount of memory and cognitive tests in a number of domains}
+
+\cventry{2019}{Freelance Data Scientist}{Upwork}{ St. Louis, MO and Chicago, IL}{}{
+Offered freelance data analysis services to companies. Projects include building systems for automatic time-series analysis, data visualization and analysis, natural language processing analysis of surveys, and consulting on larger projects.
+\textbf{Jobs Include:}
+\begin{itemize}
+\item Interviewing Potential Full-Time Data Scientists
+\item Building Statistical Learning Tools
+\item Natural Language Processing Analysis
+\item Machine Learning Development and Deployment
+\end{itemize}}
+
+\cventry{2018}{Programmer/Data Scientist (Internship)}{Washington University in St. Louis: Alumni and Development}{\linebreak St. Louis, MO}{}{Continued development of previous non-scientific automation. Created new data models for donor identification. Other data analysis and visualization projects.}
+
+\cventry{2017}{Real Estate Analyst (Internship)}{Kairos Investment Management}{Rancho Santa Margarita, CA}{}{Wrote automation programs for data processing, and constructed a model for optimal rent estimation. Built data mining programs for continued use by analysts.}
+
+\cventry{2016 -- 2017}{Economics Simulation Programmer}{Washington University in St. Louis: Department of Economics}{\linebreak St. Louis, MO}{}{Built macroeconomic simulations for teaching of Economics 4121. Wrote simulations in Mathematica for the ISLMFE model, the Solow-Swan model, and permutations thereof.}
+
+\pagebreak
+
+\section{Selected Projects}
+
+\cventry{2020 -}{\href{https://www.coeneedell.com/projects/memnet/}{Deep Learning and Computer Vision for Memorability}}{}{}{}{A project to create a better computer vision model for predicting the memorability of an image. This started with investigating the current standard MemNet, and has moved beyond into developing new models.}
+
+\cventry{2020 -}{\href{https://www.coeneedell.com/projects/computational_patahistory/}{Computational Rupahistory}}{}{}{}{An ongoing side project to see how agent based simulations of territory-controlling groups interact in a simulated world. Currently on the back-burner, though some progress has been made in creating a cellular automata to generate a world map on a hex-grid.}
+
+\cventry{2020}{\href{https://www.coeneedell.com/projects/bandcamp_analysis/}{Bandcamp Album Covers}}{}{}{}{A project to investigate how indie musicians use visual signs to indicate their subgenre. Leverages Natural Language Processing techniques like Latent Dirichlet Allocation to analyze color usage in album cover images.}
+
+\cventry{2019 -- 2020}{\href{https://www.coeneedell.com/projects/ongaku/}{Ongaku}}{}{}{}{A system for creating musical playlists based on feature analysis. Leverages gammatone cepstral coefficients (a system for mimicking neural signals from the ear to the brain) and manifold learning techniques to create a psuedo-euclidean space for musical tracks. Shapes in the song-space can then be drawn to define playlists.}
+
+\cventry{2019}{\href{https://www.coeneedell.com/projects/fluxx-for-robots/}{Fluxx for Robots}}{}{}{}{An Artifical Intelligence Learning environment for the tabletop card-game Fluxx by Looney Labs. Has both a human-motivated interface and a machine-motivated interface. Intended for research on machine learning methods for complex and incomplete-information games.}
+
+\section{Conference Precedings}
+
+\cventry{}{Coen D. Needell, Wilma A. Bainbridge}{Embracing New Techniques in Deep Learning for Predicting
+Image Memorability}{}{Annual Meeting of the Vision Sciences Society, 2021}{Poster, Submitted}
+
+\section{Skills}
+\def\arraystretch{0}
+\raggedleft
+\begin{tabularx}{.9\textwidth}{>{\center\arraybackslash}X >{\center\arraybackslash}X >{\center\arraybackslash}X}
+Econometric Models & Systems Analysis & Advanced Mathematics \\
+Physics & Philosophy of Science & Data Visualization \\
+Machine Learning & Natural Language Processing & Data Mining \\
+Data Scraping & Network Analysis & Statistics and Statistical Learning \\
+Epistemology & Sociology & Deep Learning
+\end{tabularx}
+
+\section{Languages, Packages, and Frameworks}
+\def\arraystretch{0}
+\raggedleft
+\begin{tabularx}{.9\textwidth}{>{\center\arraybackslash}X >{\center\arraybackslash}X >{\center\arraybackslash}X}
+Python & JavaScript & Julia \\
+Linux & Fortran & OpenCL \\
+Tensorflow & PyTorch & Sci-kit Learn \\
+Git & Numpy & Pandas \\
+R & Stata & Mathematica \\
+JSPsych & SQL & C-Family (esp. C99)
+
+\end{tabularx}
+\end{document}
