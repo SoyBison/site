@@ -1,70 +1,77 @@
 ---
 # Display name
-name: Coen D. Needell
-
-# Username (this should match the folder name)
-authors:
-- admin
+title: Nelson Bighetti
 
 # Is this the primary user of the site?
 superuser: true
 
-# Role/position
-role: Master's Student in Computational Social Science
+# Role/position/tagline
+role: Professor of Artificial Intelligence
 
-# Organizations/Affiliations
+# Organizations/Affiliations to show in About widget
 organizations:
-- name: University of Chicago
-  url: "https://macss.uchicago.edu/"
+- name: Stanford University
+  url: https://www.stanford.edu/
 
 # Short bio (displayed in user profile at end of posts)
-bio: Student, Data Scientist, Philosopher, Mathematician, Freelancer. Ongoing Projects include A.I. for societally driven games, deep learning for studying human memory, making tools for detecting cognitive impairment, and pontificating about video games.
+bio: My research interests include distributed robotics, mobile computing and programmable matter.
 
+# Interests to show in About widget
 interests:
 - Artificial Intelligence
-- Computational Game Theory
-- Information Science
-- Cultural Patterns
+- Computational Linguistics
+- Information Retrieval
 
+# Education to show in About widget
 education:
   courses:
-  - course: MA in Computational Social Science
-    institution: University of Chicago
-    year: 2021
-  - course: BA in Economics and Physics
-    institution: Washington University in St. Louis
-    year: 2019
-
+  - course: PhD in Artificial Intelligence
+    institution: Stanford University
+    year: 2012
+  - course: MEng in Artificial Intelligence
+    institution: Massachusetts Institute of Technology
+    year: 2009
+  - course: BSc in Artificial Intelligence
+    institution: Massachusetts Institute of Technology
+    year: 2008
 
 # Social/Academic Networking
 # For available icons, see: https://sourcethemes.com/academic/docs/page-builder/#icons
 #   For an email link, use "fas" icon pack, "envelope" icon, and a link in the
-#   form "mailto:your-email@example.com" or "#contact" for contact widget.
+#   form "mailto:your-email@example.com" or "/#contact" for contact widget.
 social:
 - icon: envelope
   icon_pack: fas
-  link: '#contact'  # For a direct email link, use "mailto:test@example.org".
-- icon: wordpress
+  link: '/#contact'
+- icon: twitter
   icon_pack: fab
-  link: https://coeneedell.home.blog
+  link: https://twitter.com/GeorgeCushen
+- icon: graduation-cap  # Alternatively, use `google-scholar` icon from `ai` icon pack
+  icon_pack: fas
+  link: https://scholar.google.co.uk/citations?user=sIwtMXoAAAAJ
 - icon: github
   icon_pack: fab
-  link: https://github.com/SoyBison
+  link: https://github.com/gcushen
 - icon: linkedin
   icon_pack: fab
-  link: https://www.linkedin.com/in/coen-needell-b4503216a/
-- icon: cv
-  icon_pack: ai
-  link: files/cv.pdf
+  link: https://www.linkedin.com/
+
+# Link to a PDF of your resume/CV.
+# To use: copy your resume to `static/media/resume.pdf`, enable `ai` icons in `params.toml`, 
+# and uncomment the lines below.
+# - icon: cv
+#   icon_pack: ai
+#   link: media/resume.pdf
 
 # Enter email to display Gravatar (if Gravatar enabled in Config)
-email: "coeneedell@gmail.com"
+email: ""
 
-# Organizational groups that you belong to (for People widget)
-#   Set this to `[]` or comment out if you are not using People widget.
-user_groups: []
+# Highlight the author in author lists? (true/false)
+highlight_name: false
 ---
 
-I am a student in the Masters of Computational Social Science program at the University of Chicago. As an undergraduate at Washington University in St. Louis, I majored in Physics and Economics, and minored in the Philosophy of Science. My work focuses on developing novel methods for social scientific concepts. Currently I am working in the Brain Bridge Lab, researching methods for leveraging computer vision models to study memory and memorability. My hobbies include analyzing video games, cooking, and writing short stories.
+Nelson Bighetti is a professor of artificial intelligence at the Stanford AI Lab. His research interests include distributed robotics, mobile computing and programmable matter. He leads the Robotic Neurobiology group, which develops self-reconfiguring robots, systems of self-organizing robots, and mobile sensor networks.
 
-This site is intended to be a place for me to post my projects, some personal, some academic. They are mostly computational in nature, but some are philosophical.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque elit, tristique placerat feugiat ac, facilisis vitae arcu. Proin eget egestas augue. Praesent ut sem nec arcu pellentesque aliquet. Duis dapibus diam vel metus tempus vulputate.
+
+{{< icon name="download" pack="fas" >}} Download my {{< staticref "media/demo_resume.pdf" "newtab" >}}resumé{{< /staticref >}}.
