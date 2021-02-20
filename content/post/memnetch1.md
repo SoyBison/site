@@ -35,7 +35,7 @@ This further implies that MemNet is probably not as generalizable as previously 
 Let's take a swing at modernizing MemNet. Running a Caffe Model downloaded from the Internet is largely plug-and-play. We don't need any knowledge of the model's architecture or anything to get it to work, it's just a function that takes in a photo and outputs a number. To rebuild the thing in PyTorch, however, we may need to put some thought in.
 <center>
 
-![Memnet Architecture](../../media/memnet/MemNet.jpg)
+<img class='dm-safe-img' src="/media/memnet/MemNet.png"/>
 
 A skeleton diagram of the layer-structure of MemNet. It's designed to mimic the hugely successful image classifier AlexNet, which consisted of a few convolutional layers followed by 3 fully connected layers. In reality, the convolutional features of MemNet differ slightly from that of AlexNet. </center>
 
@@ -57,7 +57,7 @@ Now let's do some tweaking.
 
 Historically, the next big advancement in using neural networks for computer vision was ResNet. This allowed for convolutional neural networks to be built deeper, with more layers, without the gradient exploding or vanishing. Knowing that, let's try to include this in our model. What we will do is take a pre-trained ResNet, that is the whole thing, not just the convolutional features, and add it as an input feature for our regression step. The code for this is [here.](https://www.coeneedell.com/appendix/memnet_extras/#resmem)
 
-![ResMem Diagram](../../media/memnet/ResMem.jpg)
+<img class='dm-safe-img' src="/media/memnet/ResMem.png">
 
 For the following discussion, while ResMem is initialized to a pre-trained optimum, I have allowed it to retrain for our problem. The thought is that given a larger set of parameters the final model *should* be more generalizable. Using weights and biases, we can run a hyperparameter sweep.
 
@@ -73,7 +73,7 @@ Here we can see much much higher peaks, reaching into the range of 0.66-0.67! Al
 
 Going forward, I'm going to try to add a third feature to our model. This one is based on Semantic Segmentation. There is, however, a problem. Semantic Segmentation outputs a data array that is much more high-dimensional than an image, so it cannot be squished directly into a standard linear layer. The way this will be implemented is as a pre-trained segmentation model, which will not be retrained during the process, and a small convolutional neural network to process the segmentation into more simple convolutional features.
 
-![TripleMem Diagram](../../media/memnet/TripleMem.jpg)
+<img class="dm-safe-img" src="/media/memnet/TripleMem.png">
 
 While this model has not undergone full testing yet, the preliminary results are promising. It is, however, much heavier than ResMem, taking almost four times as long to train on my GTX 1080 TI.
 
