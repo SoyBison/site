@@ -2,6 +2,7 @@
 title: "Accelerated Gammatones"
 date: 2020-05-12T14:37:01-05:00
 draft: false
+math: true
 ---
 
 Last winter, I worked on a personal project I call [_ongaku_](https://www.coeneedell.com/projects/ongaku/) (from the Japanese for 'music'). This was an attempt to use manifold learning to create a metric space for music. The preprocessing relied heavily on a method called [_Gammatone Cepstrum Analysis_](https://ieeexplore.ieee.org/document/6202347). This method was intended to replace Mel Frequency Cepstral Coefficients. Where Mel Frequency is a logarithmic transformation of sound frequency, in an attempt to simulate human perception of sound. The most common transformation for Mels is:

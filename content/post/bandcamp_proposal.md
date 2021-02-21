@@ -2,6 +2,7 @@
 title: "Bandcamp Album Cover Exploration"
 date: 2020-03-05T17:45:57-06:00
 draft: false
+math: true
 tags: ['Cultural Patterns', 'Music', 'Color Analysis', 'Statistical Learning']
 ---
 

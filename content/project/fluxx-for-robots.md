@@ -3,6 +3,7 @@ title: "Fluxx for Robots"
 date: 2019-12-31T17:09:00-07:00
 tags: ['Machine Learning', 'Computational Game Theory']
 draft: false
+math: true
 ---
 
 ### Introduction:
