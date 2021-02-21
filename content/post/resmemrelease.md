@@ -14,7 +14,7 @@ pip install resmem
 
 ResMem is a deep learning model built in PyTorch for estimating the memorability of an image. It uses the classic image classification architecture ResNet as a feature space and a Convolutional Neural Network feature space based on AlexNet. Then, using a series of linear transformations, estimations of memorability are generated from these features.
 
-![ResMem Architecture](../../media/memnet/ResMem.jpg)
+<img class='dm-safe-img' src='/media/memnet/ResMem.png'>
 
 If you're only using `resmem` to estimate image memorability, you can expect that most of your predictions will be more accurate than the figures mentioned earlier. However, it may be useful to know how the model behaves more broadly. This section is intended to elucidate this. ResMemRetrain, as tested on a random selection of images from LaMem[^1] and MemCat[^2], has an average "inaccuracy" of about ten percent as discussed earlier, but there are some mitigating factors.
 
