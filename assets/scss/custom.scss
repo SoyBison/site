@@ -28,4 +28,7 @@ figcaption {
 
 .dark .dm-safe-img {
     filter: invert(1);
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
 }
