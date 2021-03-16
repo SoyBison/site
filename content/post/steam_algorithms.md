@@ -25,7 +25,7 @@ From the point of view of the consumer, there are $N$ options of varying quality
 
 As mentioned before, usually services try to solve this problem with Collaborative Filtering. A class of algorithms that compare a user's tastes to other user's tastes to find similarities, and formulate a recommendation based on that. Generally, the algorithms go like this:
 
-```{python}
+```{lang-none}
 given a user, u
 create a vector of u's known tastes
 for u_prime in users:
