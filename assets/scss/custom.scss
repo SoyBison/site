@@ -24,11 +24,14 @@ figcaption {
   text-align: center;
 }
 
+.heatmap {
 
-
-.dark .dm-safe-img {
-    filter: invert(1);
     image-rendering: pixelated;
     image-rendering: -moz-crisp-edges;
     image-rendering: crisp-edges;
+
+}
+
+.dark .dm-safe-img {
+    filter: invert(1);
 }
