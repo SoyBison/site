@@ -2,6 +2,7 @@
 title: "MemNet: Models for Predicting Image Memorability"
 date: 2020-10-24T16:43:39-05:00
 draft: false
+tags: ["Machine Learning", "Computer Vision", "Deep Learning", "Visual Memory"]
 ---
  
 Memnet[^1] was an attempt to build a neural network-based model to predict the memorability of an image. This attempt was carried out by Aditya Khosla at the Computer Science and Artificial Intelligence Labs at MIT to moderate success. It is the most commonly used neural network regression for this purpose, and has been used and cited in many research papers since publication. There are some problems, however. Memnet was built in Caffe, a deep learning framework which has been defunct since shortly after Memnet's publication. Memnet was trained on LaMem, a dataset to which public access has been restricted, and the original author, Aditya Khosla, is difficult to get a hold of. For the past couple of months I, under the auspices of the Brain Bridge Lab at the University of Chicago, have been investigating the model itself, as well as making some tweaks to utilize newer techniques and hardware access to solve the same problem.

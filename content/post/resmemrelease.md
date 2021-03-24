@@ -2,6 +2,7 @@
 title: "ResMem Release"
 date: 2021-02-16T12:10:12-06:00
 draft: false
+tags: ["Machine Learning", "Computer Vision", "Deep Learning", "Visual Memory"]
 ---
 
 A user-ready version of ResMem is now available on PyPI! The model included in the package is designed to estimate the memorability of an input image but is not intended for feature space analysis. The model is optimized for accuracy by allowing the ResNet features to retrain. The model included in the `resmem` package has been dubbed "ResMemRetrain" for this reason. Statistically, the retrained model performs better than the model where ResNet is as-is, receiving a Spearman rank correlation of 0.64 on a held-out sample from both LaMem and MemCat. It also has an average squared loss of 0.009, which means that on average, the model predictions are off by 0.094, but more on that later.
