@@ -5,6 +5,7 @@ date: 2021-03-14 22:34:40.163 -0500
 CJKmainfont: Noto Sans CJK SC
 math: true
 draft: false
+tags: ["Video Games", "Recommendation Algorithms"]
 ---
 
 ## Introduction
