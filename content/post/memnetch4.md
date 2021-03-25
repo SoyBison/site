@@ -27,3 +27,15 @@ image:
 #   Otherwise, set `projects = []`.
 projects: ['memnet']
 ---
+
+<!-- Some Background-->
+
+## Memorability and "Performance"
+
+## High Level Features
+
+## Performance of MemNet
+
+## Performance of ResMem
+
+
