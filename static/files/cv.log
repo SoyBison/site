@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2021.3.10)  24 MAR 2021 17:57
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2021.3.10)  26 MAR 2021 13:44
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -681,13 +681,13 @@ Package rerunfilecheck Info: File `cv.out' has not changed.
 Here is how much of TeX's memory you used:
  21935 strings out of 479383
  395002 string characters out of 5875830
- 757402 words of memory out of 5000000
+ 757398 words of memory out of 5000000
  38577 multiletter control sequences out of 15000+600000
  451814 words of font info for 78 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  108i,12n,111p,665b,829s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}</usr/share/texmf-dist/fonts/type1/public/lm/lmss10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmss12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmss17.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmss9.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsso10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsso9.pfb></usr/share/texmf-dist/fonts/type1/public/marvosym/marvosym.pfb>
-Output written on /home/coen/Documents/Personal/site/static/files/cv.pdf (2 pages, 231964 bytes).
+Output written on /home/coen/Documents/Personal/site/static/files/cv.pdf (2 pages, 231820 bytes).
 PDF statistics:
  92 PDF objects out of 1000 (max. 8388607)
  78 compressed objects within 1 object stream
