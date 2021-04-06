@@ -10,7 +10,7 @@ Reimplemementing and testing Khosla et al.'s MemNet[[1]](#1), and beyond.
 
 ## Goals
 
-The original MemNet has proved difficult to use and access in recent years. We would like to implement it so that we can use his work for our own research. The short term goal is to simply get it working. In the long term we’d like to improve upon the architecture using pre-training, and possibly some other progress in neural network architecture that has been made since 2015. In addition we’d like to get a tool running for in-lab use. This will be implemented in PyTorch.
+The original MemNet has proved difficult to use and access in recent years. We would like to implement it so that we can use their work for our own research. The short term goal is to simply get it working. In the long term we’d like to improve upon the architecture using pre-training, and possibly some other progress in neural network architecture that has been made since 2015. In addition we’d like to get a tool running for in-lab use. This will be implemented in PyTorch.
 
 A decent amount of progress has been made on this project so far. The progress will be chronicled in a number of blog posts.
 
