@@ -32,7 +32,7 @@ math: true
 
 ---
 
-In my previous posts about Memorability (see the project link above), I've been talking about the performance of my models fairly matter-of-factly. I've been comparing their scores on things, reporting them in abstracts, and talking about how one model performs better than another, and why I think that is happening. Some questions arise though, for example, why did I get such a vastly different score with MemNet than what Khosla reported in his original paper? Why is it possible, as has occurred in some cases, for rank correlation to improve while loss worsens? If a given model is better than another, shouldn't both measures improve? Why are we using rank correlation to measure the effectiveness of the model in the first place, if they're being trained on MSE Loss? 
+In my previous posts about Memorability (see the project link above), I've been talking about the performance of my models fairly matter-of-factly. I've been comparing their scores on things, reporting them in abstracts, and talking about how one model performs better than another, and why I think that is happening. Some questions arise though, for example, why did I get such a vastly different score with MemNet than what Khosla et al. reported in their original paper? Why is it possible, as has occurred in some cases, for rank correlation to improve while loss worsens? If a given model is better than another, shouldn't both measures improve? Why are we using rank correlation to measure the effectiveness of the model in the first place, if they're being trained on MSE Loss? 
 
 ## Memorability and "Performance"
 
