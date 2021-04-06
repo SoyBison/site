@@ -6,18 +6,18 @@ draft: false
 
 ## Info
 
-Reimplemementing and testing Aditya Khosla's MemNet[[1]](#1), and beyond.
+Reimplemementing and testing Khosla et al.'s MemNet[[1]](#1), and beyond.
 
 ## Goals
 
-Memnet has been difficult to access since Dr. Khosla's departure from the academic world. We would like to implement it so that we can use his work for our own research. The short term goal is to simply get it working. In the long term we'd like to improve upon the architecture using pre-training, and possibly some other progress in neural network architecture that has been made since 2015. In addition we'd like to get a tool running for in-lab use. This will be implemented in PyTorch.
+The original MemNet has proved difficult to use and access in recent years. We would like to implement it so that we can use his work for our own research. The short term goal is to simply get it working. In the long term we’d like to improve upon the architecture using pre-training, and possibly some other progress in neural network architecture that has been made since 2015. In addition we’d like to get a tool running for in-lab use. This will be implemented in PyTorch.
 
 A decent amount of progress has been made on this project so far. The progress will be chronicled in a number of blog posts.
 
 1. [MemNet and Similar Models]({{<relref "memnetch1">}})
 2. [ResMem Release]({{<relref "resmemrelease">}})
 3. [ResMem and M3M]({{<relref "memnetch2">}})
-
+4. [Comparing ResMem and MemNet]({{<relref "memnetch4">}})
 
 A release version of ResMem, the best performing model I've made so far (at least that isn't too large to run on personal computers) is publicly available! The source code can be found at [github.](https://github.com/Brain-Bridge-Lab/resmem) But there's an easy-to-install version on PyPI, with a web interface coming soon. Just type into your console:
 
