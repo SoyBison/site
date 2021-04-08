@@ -129,15 +129,6 @@ An older analysis of this can be found [here]({{<ref "memnetch1#the-new-old-mode
 
 <!-- For the thesis version, put in an updated discussion like in #the new old model-->
 
-One of the things to note here is that while the reverse engineered MemNet can achieve rank correlations as reported, it takes some time for it to get there when trained on LaMem alone. When that model is then tested on MemCat, it scores much worse than it does on a validation set from LaMem. Even more interesting is the fact that when the model from the website is tested on MemCat, it achieves a rank correlation of 0.22. This indicates two things. First, the original MemNet model was, while probably not overfit on LaMem, overfit overall. It takes a relatively long time for the model to train on LaMem alone until it reaches a rank correlation similar to that reported in the paper, and once it gets there its rank correlation on MemCat falls sharply. This is possibly due to the fact that LaMem's images have a lot of strange high-level features. The second thing is that when MemNet is trained on MemCat, it performs exceedingly well on LaMem. This indicates that whatever features are learned when training on MemCat are more effective at predicting memorability on LaMem than the other way around.
-
-The reverse engineered MemNet has a pretty good distribution of predictions, better than the caffe model. However, it still holds too much probability mass around the mean, and has a hard cutoff on the high end. This is shown below. 
-
-![MemNet Distribution](/media/memnet/remade_memnet_dist.png)
-
-When trained on the combination dataset, with early stopping determined by rank correlation on a validation set, this remade MemNet has a rank correlation 0.55 on a held out test set, and an MSE Loss of 0.012. This implies that, on average, the memorability scores are, accurate to 0.11.
-
-## Performance of ResMem
 
 One of the interesting things about using residual neural networks in this task is that we can create two separate models. One which uses a classic categorization method as an intermediate feature, and another which is allowed to retrain the residual features to optimize specifically for memorability.
 
