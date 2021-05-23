@@ -10,5 +10,5 @@ publishDate: "2021-03-01T00:00:00Z"
 
 publication: In *Proceedings of the Vision Sciences Society*
 
-abstract: Various work has suggested that the memorability of an image is consistent across people, andthus can be treated as an intrinsic property of an image. Using computer vision models, we canmake specific predictions about what people will remember or forget.
+abstract: Various work has suggested that the memorability of an image is consistent across people, and thus can be treated as an intrinsic property of an image. Using computer vision models, we can make specific predictions about what people will remember or forget.
 ---
