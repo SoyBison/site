@@ -5,8 +5,9 @@ authors:
 - Coen D. Needell
 - Wilma A. Bainbridge
 
-publication_types: ["1"]
+publication_types: ["3"]
 publishDate: "2021-03-01T00:00:00Z"
+url_pdf: "https://arxiv.org/abs/2105.10598"
 
 publication: In *Proceedings of the Vision Sciences Society*
 
