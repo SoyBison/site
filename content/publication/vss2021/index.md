@@ -8,7 +8,7 @@ authors:
 publication_types: ["3"]
 publishDate: "2021-03-01T00:00:00Z"
 links: 
-    - name: ArXiV
+    - name: arXiv
       url: "https://arxiv.org/abs/2105.10598"
 
 publication: In *Proceedings of the Vision Sciences Society*
