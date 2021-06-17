@@ -18,11 +18,21 @@ date_format = "Jan 2006"
 #   Leave `date_end` empty if it's your current employer.
 #   Begin/end multi-line descriptions with 3 quotes `"""`.
 [[experience]]
+  title = "Computational Social Science Research Assistant"
+  company = "Microsoft Research"
+  location = "New York, NY"
+  date_start = "2021-06-14"
+  date_end = ""
+  description = """
+  Research assistant on multiple projects across the behavioral sciences.
+  """
+
+[[experience]]
   title = "Research Assistant"
   company = "University of Chicago, Biological Sciences Division, Department of Medicine"
   location = "Chicago, IL"
   date_start = "2020-06-15"
-  date_end = ""
+  date_end = "2021-06-14"
   description = """
   Develops an on-line system for evaluating cognitive function.
   """
@@ -32,7 +42,7 @@ date_format = "Jan 2006"
   company_url = "https://brainbridgelab.uchicago.edu/"
   location = "Chicago, IL"
   date_start = "2020-03-01"
-  date_end = ""
+  date_end = "2021-06-14"
   description = """
   Develops Computer Vision models for understanding memory and memorability. Currently focused on developing novel techniques for predicting the memorability of an image.
   """
