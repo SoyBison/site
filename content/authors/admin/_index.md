@@ -18,13 +18,14 @@ organizations:
   url: "https://macss.uchicago.edu/"
 
 # Short bio (displayed in user profile at end of posts)
-bio: Student, Data Scientist, Philosopher, Mathematician, Freelancer. Ongoing Projects include A.I. for societally driven games, deep learning for studying human memory, making tools for detecting cognitive impairment, and pontificating about video games.
+bio: Student, Data Scientist, Philosopher, Mathematician, Freelancer. Currently working as a Research Assistant at Microsoft Research and pontificating about video games.
 
 interests:
 - Artificial Intelligence
 - Computational Game Theory
 - Information Science
 - Cultural Patterns
+- Information, Its Spread, and Individual Epistemology 
 
 education:
   courses:
@@ -65,6 +66,6 @@ email: "coeneedell@gmail.com"
 user_groups: []
 ---
 
-I am a student in the Masters of Computational Social Science program at the University of Chicago. As an undergraduate at Washington University in St. Louis, I majored in Physics and Economics, and minored in the Philosophy of Science. My work focuses on developing novel methods for social scientific concepts. Currently I am working in the Brain Bridge Lab, researching methods for leveraging computer vision models to study memory and memorability. My hobbies include analyzing video games, cooking, and writing short stories.
+I am a Research Assistant at Microsoft Research, NYC. I just finished a Masters of Computational Social Science program at the University of Chicago with my thesis research on using deep learning to estimate the memorability of images. As an undergraduate at Washington University in St. Louis, I majored in Physics and Economics, and minored in the Philosophy of Science. My work focuses on developing novel methods for social scientific concepts. My hobbies include analyzing video games, cooking, and writing short stories, although it's been a while since I've written a good one.
 
 This site is intended to be a place for me to post my projects, some personal, some academic. They are mostly computational in nature, but some are philosophical.
