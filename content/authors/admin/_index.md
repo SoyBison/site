@@ -10,12 +10,12 @@ authors:
 superuser: true
 
 # Role/position
-role: Master's Student in Computational Social Science
+role: Research Assistant (Pre-Doctoral)
 
 # Organizations/Affiliations
 organizations:
-- name: University of Chicago
-  url: "https://macss.uchicago.edu/"
+- name: Microsoft Research, NYC
+  url: "https://www.microsoft.com/en-us/research/theme/computational-social-science/"
 
 # Short bio (displayed in user profile at end of posts)
 bio: Student, Data Scientist, Philosopher, Mathematician, Freelancer. Currently working as a Research Assistant at Microsoft Research and pontificating about video games.
