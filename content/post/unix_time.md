@@ -222,5 +222,51 @@ I like to use [`kitty`](https://sw.kovidgoyal.net/kitty/) and `xterm`. Kitty has
 And then we'll reboot. Normally you would have to specify the lightdm greeter you installed in the config file `/etc/lightdm/lightdm.conf`, but the gtk based greeter is the default.
 
 
+
+## QTile bare
+
+Here's what the current configuration looks like. First you'll notice my terminal has not-very-standard colors.
+I transferred my kitty config from the previous setup, which preserved the color scheme, but we'll change it later.
+I've also installed `mpv` so that I can rewatch _The Magicians_ for roughly the 70th time while messing with my configs, shown on the right hand side[^3].
+
+![QTile with no style](/media/rice/raw_q.png)
+
+## Style
+
+First, we need to choose a style to tune the rest of our adventure to. It's not particularly creative, but right now I'm leaning toward a sort of mid-century modern vibe. It's good to start with a wallpaper and work our way up, so we'll also install `nitrogen`, as a wallpaper manager.
+We're coming up on winter at the time of writing, so let's make something winter-y.
+
+A cursory search got us some interesting things.
+The first thing I noticed is that if we want a coherent image across both of the screens, our choices are extremely limited.
+Having both screens show the same image could be a little strange if the wallpaper as some object as the focus.
+
+![Cabin in the proverbial woods](/media/rice/single_cabin.png)
+
+Oh well that's pleasant. It's dark, very fitting for winter, but has a shock of warmth to open it up.
+
+![Oh that's less nice in context](/media/rice/double_vision.png)
+
+Hmm, when doubled it's less nice. In fact it's a tad weird.
+Okay well what if we take something with a less obvious focus, and then just mirror it.
+
+![Some Trees](/media/rice/treelake.jpg)
+
+Pretty, allows us to use greens and blues in addition to blacks and whites. Now let's flop it with imagemagick.
+
+```bash
+convert -flop treelake.jpg laketree.jpg
+```
+
+![seerT emoS](/media/rice/laketree.jpg)
+
+And in context:
+
+![seerT emoSSome Trees](/media/rice/floptree.png)
+
+Okay it's a little obvious near the middle, but that's covered up by the bezel. Let's stick with it.
+
+
+
 [^1]: As a side-note, go play _Hacknet_, it has a wonderful story and great hacker-simulator-y puzzle gameplay.
 [^2]: True Linux Patriots will get mad at me for this, but the NVIDIA graphics card with proprietary drivers is non-negotiable because I am a deep learning researcher and I need to be able to run CUDA. This may magically change in the future if PyTorch figures out a way to support Nouveau, but for now, Nvidia is fine, and as Linux usage rises, I suspect the proprietary drivers will become more accepted, and our composition pipelines will get neater.
+[^3]: As a side note, that audio spectrum in the center bottom is from a package called `cava`, available on the AUR.

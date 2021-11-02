@@ -66,6 +66,6 @@ email: "coeneedell@gmail.com"
 user_groups: []
 ---
 
-I am a Research Assistant at Microsoft Research, NYC. I just finished a Masters of Computational Social Science program at the University of Chicago with my thesis research on using deep learning to estimate the memorability of images. As an undergraduate at Washington University in St. Louis, I majored in Physics and Economics, and minored in the Philosophy of Science. My work focuses on developing novel methods for social scientific concepts. My hobbies include analyzing video games, cooking, and writing short stories, although it's been a while since I've written a good one.
+I am a Research Assistant at Microsoft Research, NYC. I just finished a Masters of Computational Social Science program at the University of Chicago with my thesis research on using deep learning to estimate the memorability of images. As an undergraduate at Washington University in St. Louis, I majored in Physics and Economics, and minored in the Philosophy of Science. My work focuses on developing novel methods for social scientific concepts. My hobbies include analyzing video games, cooking, and playing classical guitar.
 
 This site is intended to be a place for me to post my projects, some personal, some academic. They are mostly computational in nature, but some are philosophical.
