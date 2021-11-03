@@ -11,6 +11,7 @@ date: 2021-10-29T14:44:14-04:00
 lastmod: 2021-10-29T14:44:14-04:00
 featured: false
 draft: true 
+highlight: true
 
 # Featured image
 # To use, add an image named `featured.jpg/png` to your page's folder.
@@ -184,6 +185,17 @@ This is what the desktop looks like at this stage. I've already installed a musi
 
 ![ncmpcpp](/media/rice/tty4.png)
 
+Having a music player, or a youtube video, or tv to watch during the ricing process is absolutely essential. Before even installing a gui, I generally do the following to set up a music player:
+
+```bash
+sudo pacman -S mpd mpc ncmpcpp alsa-utils pulseaudio
+```
+Here `mpd` is a music player daemon, it runs in the background, keeps a database of all your music, and plays music over alsa. `mpc` is a command line interface for `mpd`, and `ncmpcpp` is a text-based client. We can also install an AUR helper, which is a program that extends `pacman` to use unofficial packages as well, and you won't need to go through the whole rigamarole of cloning a git repository, running make package, and then dealing with dependencies. You can even uninstall AUR packages with `pacman`. I use `yay`, instructions for install [here](https://github.com/Jguer/yay).
+
+For ease of use on the command line I also use `zsh` as my default shell, and `oh-my-zsh` as a modification framework.
+
+
+
 I've already set up graphics drivers and audio drivers and whatnot, so we won't need to worry about that.
 
 Here are some of the options, based on our previous criteria.
@@ -196,26 +208,32 @@ Here are some of the options, based on our previous criteria.
   - QTile
       - I really want to love QTile. For one it's entirely written in Python so it's extremely easy to modify. The negative is that it isn't wholly mature yet. It's fairly new on the scene with the first release in mid-2019, but its hackability has made it a favorite.
 
-To be perfectly honest, the choice beyond this point is arbitrary. After agonizing over this for an hour or so, I just ended up rolling a d4. I rolled a 2, and the third in this list is QTile. This is probably for the best in the long run since I'm a big python fan.
+To be perfectly honest, the choice beyond this point is arbitrary. After agonizing over this for (christ) like three days, I just ended up rolling a d4. I rolled a 2, and the second in this list is OpenBox.
 
 ## The first few minutes
 
-We'll need a display manager to handle booting into the X-Server, logging in, and setting us up. Then we'll need to install awesome. Luckily it's on the Arch repository as `awesome`. I'm a huge fan of LightDM as the display manager, so we'll use that, but we need to choose a greeter. We'll use the GTK greeter for now, since we will be able to easily modify that later.
+We'll need a display manager to handle booting into the X-Server, logging in, and setting us up. Then we'll need to install OpenBox. Luckily it's on the Arch repository as `openbox`. I'm a huge fan of LightDM as the display manager, so we'll use that, but we need to choose a greeter. We'll use the GTK greeter for now, since we will be able to easily modify that later.
 
-Here are the problems I foresee with using AwesomeWM:
-  - The configuration is in Lua, so while in principle we can do anything with it, I'm not a Lua wizard, so we might be a little bit limited by that.
-  - I don't like how Awesome handles multiple screens, so we will need to examine this as well.
+Here are the problems I foresee.
+  - OpenBox is very simple, I'm going to have to set up a lot of features myself.
+  - While all of these systems aren't particularly beautiful by default, OpenBox is singularly fugly by default.
+  - Configs are in XML.
+
+Here are the pros to using OpenBox that I can think of right away:
+  - Traditional-ish setup, if someone else tries to use my laptop I don't have to walk them through every single keypress to do basic things.
+  - Hella customizable. Because the configs are in XML, you can call pretty much arbitrary commands and scripts from them, including python. If I want to sit down and develop entire plugins for OpenBox, that's my prerogative.
+  - Well-developed, it has been a favorite alternate Window Manager for like 20 years, so there's a rich environment of mods tweaks and scripts for us to shameless steal from.
 
 Here is the installation line:
 
 ```bash
-sudo pacman -S qtile lightdm lightdm-gtk-greeter
+sudo pacman -S openbox lightdm lightdm-gtk-greeter
 # LightDM setup
 systemctl enable lightdm
 
-# QTile setup
-mkdir -p ~/.config/qtile
-cp /usr/share/doc/qtile/default_config.py ~/.config/qtile/config.py
+# setup
+mkdir -p ~/.config/openbox
+cp -a /etc/xdg/openbox/ ~/.config/
 ```
 At this point we also need to ensure we have two terminal emulators installed (just in case one fails.)
 I like to use [`kitty`](https://sw.kovidgoyal.net/kitty/) and `xterm`. Kitty has great gpu acceleration features, and XTerm has the benefit of being specified in the default configs for every window manager out there.
@@ -223,13 +241,13 @@ And then we'll reboot. Normally you would have to specify the lightdm greeter yo
 
 
 
-## QTile bare
+## OpenBox
 
 Here's what the current configuration looks like. First you'll notice my terminal has not-very-standard colors.
 I transferred my kitty config from the previous setup, which preserved the color scheme, but we'll change it later.
 I've also installed `mpv` so that I can rewatch _The Magicians_ for roughly the 70th time while messing with my configs, shown on the right hand side[^3].
 
-![QTile with no style](/media/rice/raw_q.png)
+![OpenBox with no style](/media/rice/raw_ob.png)
 
 ## Style
 
@@ -246,7 +264,7 @@ Oh well that's pleasant. It's dark, very fitting for winter, but has a shock of 
 
 ![Oh that's less nice in context](/media/rice/double_vision.png)
 
-Hmm, when doubled it's less nice. In fact it's a tad weird.
+Hmm, when doubled it's less pleasant. In fact it's a tad weird.
 Okay well what if we take something with a less obvious focus, and then just mirror it.
 
 ![Some Trees](/media/rice/treelake.jpg)
@@ -265,7 +283,11 @@ And in context:
 
 Okay it's a little obvious near the middle, but that's covered up by the bezel. Let's stick with it.
 
-
+```python
+# Example of code highlighting
+input_string_var = input("Enter some data: ")
+print("You entered: {}".format(input_string_var))
+```
 
 [^1]: As a side-note, go play _Hacknet_, it has a wonderful story and great hacker-simulator-y puzzle gameplay.
 [^2]: True Linux Patriots will get mad at me for this, but the NVIDIA graphics card with proprietary drivers is non-negotiable because I am a deep learning researcher and I need to be able to run CUDA. This may magically change in the future if PyTorch figures out a way to support Nouveau, but for now, Nvidia is fine, and as Linux usage rises, I suspect the proprietary drivers will become more accepted, and our composition pipelines will get neater.
