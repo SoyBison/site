@@ -272,6 +272,7 @@ Okay well what if we take something with a less obvious focus, and then just mir
 Pretty, allows us to use greens and blues in addition to blacks and whites. Now let's flop it with imagemagick.
 
 ```bash
+sudo pacman -S imagemagick
 convert -flop treelake.jpg laketree.jpg
 ```
 
@@ -283,11 +284,290 @@ And in context:
 
 Okay it's a little obvious near the middle, but that's covered up by the bezel. Let's stick with it.
 
-```python
-# Example of code highlighting
-input_string_var = input("Enter some data: ")
-print("You entered: {}".format(input_string_var))
+## Usability
+
+I kinda cheated here. In order to do the last section with nitrogen, I set up some usability tricks in openbox first. This is because I:
+  1. Didn't want to spend a bunch of time fiddling with things using the menus and XTerm.
+  2. I have an old config for `kitty` that is very easy on my eyes, and the default config for XTerm (which is in the default OpenBox menu) is hideous.
+  3. I had to take screenshots.
+
+These things considered, I'd say in most circumstances you'd want to put up your wallpaper first because it really does so much heavy lifting in making the desktop not look like garbage.
+
+### OpenBox Configs
+
+OpenBox configs are, weirdly enough, written in XML format, sorta like HTML but from the 90s. The negative of it, is that prolonged exposure will mess with your brain, but the positive of it is that it's very mature and well defined. In addition, the OpenBox configs have a lot of management tools, so it's easy to define arbitrary commands, including calling outside scripts written in whatever language you want.
+
+We're going to start with the key and mouse binding syntax, which is in the `<keyboard>` and `<mouse>` section of the file `.config/openbox/rc.xml`
+
+### Screenshots
+
+Screenshotting on Linux is a bit of a mess since it has to go through your X-Server. The major ecosystems (KDE, GNOME, XFCE) all have their own systems of getting around this, but we since we already installed imagemagick to do some fiddling with the wallpapers, we can use it's built in screenshot tool `import`.
+Import will save to a file, but we can also pipe its output to xclip if you want to just paste the screenshot into Slack or messages for web or something.
+
+
+```bash
+import -window root "$HOME/Pictures/screens/$(date '+%Y-%m-%d-%H:%M:%S').png"
 ```
+
+Tragically, this will not work in XML. This is because the command is loaded as a string into OpenBox's manager system, then is executed as a string. For any command which does not rely on expansion, this is fine, but we want our command to change based on the output of `date`. Luckily, there is a workaround, we can instead write this command as a string and pass it to sh or bash. 
+The full XML for the screenshots looks like this:
+
+```xml
+<keybind key="Print">
+  <action name="Execute">
+    <command>sh -c '''import -window root "/home/coen/Pictures/screens/$(date '+%Y-%m-%d-%H:%M:%S').png"'''</command>
+  </action>
+</keybind>
+<keybind key="S-Print">
+  <action name="Execute">
+    <command>sh -c '''import "/home/coen/Pictures/screens/$(date '+%Y-%m-%d-%H:%M:%S').png"'''</command>
+  </action>
+</keybind>
+<keybind key="C-S-Print">
+  <action name="Execute">
+    <command>sh -c '''import png:- | xclip -selection clipboard -t image/png'''</command>
+  </action>
+</keybind>
+<keybind key="C-Print">
+  <action name="Execute">
+    <command>sh -c '''import -window root png:- | xclip -selection clipboard -t image/png'''</command>
+  </action>
+</keybind>
+```
+
+I've bound alternate behavior to Shift-Print, Control-Print, and Shift-Control-Print such that the "Shift" stands for "Selection", where `import` will pause the X-Server and allow us to select a region of the screen, and the "Control" stands for "Clipboard", where the output will go straight into the clipboard. This will be easy to remember because they share a first letter.
+
+### Media Keys
+
+Many modern computer keyboards include special keys or chords that, on windows, trigger behavior in a music player.
+In windows there's a fancy program that selects the most recently focused window that supports media key input and then sends input to that. For now, we'll just hardcode that the media keys always go to `mpd`, we may want to write a script later that either sends it there or `mpv` with priority to `mpv`. We'll have volume controls pipe directly to ALSA, which is the standard audio library for linux. If you haven't yet installed it, you'll need `alsa-utils` for this.
+
+```xml
+<keybind key="XF86AudioPlay">
+  <action name="Execute">
+    <command>mpc toggle</command>
+  </action>
+</keybind>
+<keybind key="XF86AudioNext">
+  <action name="Execute">
+    <command>mpc next</command>
+  </action>
+</keybind>
+<keybind key="XF86AudioPrev">
+  <action name="Execute">
+    <command>mpc prev</command>
+  </action>
+</keybind>
+<keybind key="XF86AudioStop">
+  <action name="Execute">
+    <command>mpc stop</command>
+  </action>
+</keybind>
+
+<keybind key="XF86AudioRaiseVolume">
+  <action name="Execute">
+    <command>amixer set Master 5%+</command>
+  </action>
+</keybind>
+<keybind key="XF86AudioLowerVolume">
+  <action name="Execute">
+    <command>amixer set Master 5%-</command>
+  </action>
+</keybind>
+<keybind key="XF86AudioLowerVolume">
+  <action name="Execute">
+    <command>amixer set Master 5%-</command>
+  </action>
+</keybind>
+<keybind key="XF86AudioMute">
+  <action name="Execute">
+    <command>amixer set Master toggle</command>
+  </action>
+</keybind>
+```
+
+You can feel free to change this as you see fit. `amixer` is the command that controls the audio drivers, so we get some simple media and volume controls out of this.
+_XF86AudioWhatever_ is the standard code that X11 gets from keyboards. If you're on a laptop, your media keys might send a custom code. You can check this by installing `xev-xorg`, and running `xev` in a terminal. This will print out all key presses to the terminal, and you can see what the name of your media key is. Here is a sample output from pressing the Play/Pause button on my keyboard.
+
+```shell
+$ xev
+KeyRelease event, serial 48, synthetic NO, window 0x600001,
+    root 0x1e1, subw 0x0, time 5057632, (2716,-464), root:(2717,793),
+    state 0x0, keycode 172 (keysym 0x1008ff14, XF86AudioPlay), same_screen YES,
+    XLookupString gives 0 bytes: 
+    XFilterEvent returns: False
+```
+
+The nice thing about live terminal programs like this is that you can use standard UNIX utilities to automatically filter out the stuff you don't need. This huge block of text is kinda hard for humans to easily parse, and if you roll your mouse over the window, you'll start getting events like crazy. You can pass this to the built-in REGEX utility `grep` to just pick out the word right before it tells you the keyname, then you'll just get that line of output.
+
+```shell
+$ xev | grep "keysym"
+state 0x0, keycode 172 (keysym 0x1008ff14, XF86AudioPlay), same_screen YES,
+```
+
+### OpenBox Quirks
+
+In order to commit changes to the OpenBox configs, we have to run `openbox --reconfigure`. There's a menu option though that triggers this action. By default it's under "System", so you just need to right click on the desktop and select it.
+
+There's a little quirk of OpenBox which is that if you mess up the `rc.xml` file, then the menu won't load properly, and therefore you won't be able to easily trigger a reconfigure. We can fix that by mapping the Reconfigure action to Win-F11.
+
+```xml
+<keybind key="W-F11">
+  <action name="Reconfigure"/>
+</keybind>
+```
+
+Another quirk is that it uses a sort-of older method for moving windows around by default. Alt-Click and drag, and Alt-Right-Click and drag are used to move and resize windows respectively, so this will override any Alt-Click that your other apps use(Perhaps an IDE, since it is now standard for Alt-Click to be used to spawn another cursor).
+We can look in the `<mouse>` section for these bindings and change all the `A-` to `W-`, which is a little more common these days. We can still use Windows style movement and resizing, where you click and drag on the top bar or the corner decorations, but this is another option (and my preferred method).
+
+### Window Management
+
+There are a couple features I'd really like to have. Coming from a tiling window manager, it would be nice to have at least windows style tiling. It doesn't need to be mouse controllable like windows (this is where you drag the window to the side or corner, and the window automatically resizes to fill). We also don't need it to go as far as even a simple tiler like i3, since otherwise what's the point of using openbox. Something as simple as making keybindings for it would be nice.
+
+Treating a section of the keyboard as a 3x3 grid, we can use OpenBox actions to snap the focused window to a corner or edge of the screen. We'll use the "Super" key as the chord for it.
+
+<img class='dm-safe-img' src='/media/rice/tiling_keys.png'>
+<figcaption>In the diagram I'm using ⌘ to represent the "Super" key. On most computers it's marked with the windows logo but I couldn't make that look good in a diagram. In OpenBox it's a "W".</figcaption>
+
+This leaves ⌘-S unassigned, or we can use it as a hotkey for "Maximize". I prefer ⌘-F as that (Super "Fullscreen") as that command though, so I'll probably keep it unassigned. Now for the implementation.
+
+OpenBox has an action called ["MoveResizeTo"](http://openbox.org/wiki/Help:Actions#MoveResizeTo) that we can use.
+First we can try it with the "Q" position.
+
+```xml
+  <keybind key="W-Q">
+    <action name="MoveResizeTo">
+      <x>+-0</x>
+      <y>+-0</y>
+      <monitor>current</monitor>
+      <width>1/2</width>
+      <height>1/2</height>
+    </action>
+  </keybind>
+```
+
+![Before](/media/rice/beforewq.png "Before")
+![After](/media/rice/afterwq.png "After")
+
+Yay it works! After implementing the rest of them we will have a good space-filling trick for our windows.
+
+![Hiccup](/media/rice/hiccup.png "Hmm")
+
+Dang it looks like this method doesn't work quite right for Super+W. Let's check the code.
+
+```xml
+  <keybind key="W-W">
+    <action name="MoveResizeTo">
+      <x>center</x>
+      <y>+-0</y>
+      <monitor>current</monitor>
+      <width>1</width>
+      <height>1/2</height>
+    </action>
+  </keybind>
+```
+
+From the OpenBox documentation, we see that the width/height box allows either pixels, percents, or fractions. Here's the problem, if I want to fill the space with a fraction, I'd use `1`, but it interprets this as 1 pixel wide. So you have to use percents here. There's another hiccup, by default, Super+D is the hotkey to hide/show all windows, so we'll have to change that to Ctrl+Super+D or Super+H or something.
+
+And our final product (with terminals as test windows) looks like:
+
+![Final Psuedo Tiling](/media/rice/psuedotile.png)
+
+Looks pretty ugly now that we can't see the wallpaper anymore, but we can play with that later, perhaps by adding simple gaps between the windows, or maybe even implementing a third party tiler.
+
+Since I have two monitors, we'll also need a system for moving things between monitors. I'll use "Super+Shift+M" for now, but it may be worth looking into using the openbox action "If" to find a way to make a double-tap in the appropriate direction go to the other monitor.
+
+### Compositing
+
+I mentioned compositors earlier, but now it's time to actually choose one. It doesn't show up well in screenshots, but when under load, windows will leave a trail if you move them around with your mouse. In addition we're going to want some lovely effects. I'm most familiar with `picom`, so we'll start with the experimental branch of that.
+
+```bash
+yay -S picom-git
+```
+
+We'll quickly implement my old configuration as a starting point, but here are the cliff's notes:
+  - No drop shadows
+  - No automatic transparency, let it be handled by the app.
+  - Blur on transparent windows, `dual_kawase` kernel.
+  - GLX backend
+  - Higher than default fade speed. I had mine set to 0.1, note that this number means proportion per frame.
+  - Vsync on.
+
+And run with:
+```bash
+picom --experimental-backends
+```
+
+![Dual Kawase!? I didn't even know she was single!](/media/rice/picom1.png)
+
+That's not such a bad place to start, and we can fiddle with the kitty settings later. Here's the problem, picom is not particularly buttery on our setup. It's really about poor integration with the NVIDIA drivers, but since I need to be able to use CUDA, nouveau is not an option. Let's see if we can't butter it up a little bit.
+
+```bash
+sudo pacman -S nvidia-settings
+sudo nvidia-settings
+```
+
+Let's try forcing the composition pipeline on NVIDIA's end. It's hidden in the advanced display configuration.
+
+![Nvidia settings whatever](/media/rice/nvidia.png "You'd be surprised how much weird stuff can be fixed in here.")
+
+We'll need to check the box for both screens, then save it to the XOrg Config (this is why it needs sudo).
+The results are not perfect, but they are MUCH better. Instead of before where the compositor is consistently bad, we now have one that's occasionally perfect and mostly passable. For lower framerate displays (like less than 100Hz), you'll never notice.
+
+### OB Conf
+
+Now we need to make a theme for openbox, this will affect our window decorations and our menu. Since we've already decided on a cold, dark palette, this shouldn't be too bad. What we'll need to consider are things like gradients, contrasts, weights, and other window effects.
+
+Natura is the most modern of the built-in themes, so we'll use that as a starting point.
+
+```bash
+mkdir .themes
+cp /usr/share/themes/Natura ~/.themes/SoyBison -r
+```
+
+I'm going to upload our wallpaper to Adobe Color to get a starting point.
+
+<center>
+
+|Code|Color|
+|----|-----|
+|#011826|<div style="color:#011826">&#9632;</div>|
+|#013440|<div style="color:#013440">&#9632;</div>|
+|#266573|<div style="color:#266573">&#9632;</div>|
+|#8FBABF|<div style="color:#8FBABF">&#9632;</div>|
+|#DCF0F2|<div style="color:#DCF0F2">&#9632;</div>|
+
+</center>
+
+Not so bad.
+
+I'm going to add a window rule that makes all windows undecorated (no title or bottom handle) by default.
+
+```xml
+  <application name="*">
+    <decor>no</decor>
+  </application>
+```
+
+Since we've got most of our hotkeys worked out, we don't really need upper-right hand controls. We lose some usability, but it'll be fine.
+We'll also drop the window borders for now.
+
+I rebooted around this time, and found that there was an issue with picom on restart. Let's take a look at it.
+
+### Picom Redux
+
+So, the xrender backend fails on a cold boot for some reason, I don't really want to go into why, let's just figure out a workaround. Dual_Kawase as a blur method is generally pretty efficient, but as we saw earlier, there's still some issues, it for some reason slows down randomly on this computer. Lets try out a gaussian instead.
+
+```python
+# ~/.config/picom/picom.conf
+blur-method = "gaussian"
+blur-deviation = 4
+blur-size=10
+```
+
+Here's a screenshot of `kitty` superimposed over some text from the web.
+
+![blur test](/media/rice/blur_test.png)
 
 [^1]: As a side-note, go play _Hacknet_, it has a wonderful story and great hacker-simulator-y puzzle gameplay.
 [^2]: True Linux Patriots will get mad at me for this, but the NVIDIA graphics card with proprietary drivers is non-negotiable because I am a deep learning researcher and I need to be able to run CUDA. This may magically change in the future if PyTorch figures out a way to support Nouveau, but for now, Nvidia is fine, and as Linux usage rises, I suspect the proprietary drivers will become more accepted, and our composition pipelines will get neater.

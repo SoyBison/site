@@ -18,7 +18,7 @@ organizations:
   url: "https://www.microsoft.com/en-us/research/theme/computational-social-science/"
 
 # Short bio (displayed in user profile at end of posts)
-bio: Student, Data Scientist, Philosopher, Mathematician, Freelancer. Currently working as a Research Assistant at Microsoft Research and pontificating about video games.
+bio: Student, Data Scientist, Philosopher, Mathematician, Freelancer. Currently working as a Research Assistant at Microsoft Research, pontificating about video games, and learning to play the classical guitar.
 
 interests:
 - Artificial Intelligence

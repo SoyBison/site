@@ -1,8 +1,8 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2021.10.4)  26 OCT 2021 16:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2021.11.9)  17 NOV 2021 16:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**cv
+**cv.tex
 (./cv.tex
 LaTeX2e <2020-10-01> patch level 4
 L3 programming layer <2021-02-18>
@@ -892,31 +892,37 @@ LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <9> not available
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./avatar.jpeg>]
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <10> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 76.
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 84.
 
-Underfull \hbox (badness 4556) in paragraph at lines 76--76
+Underfull \hbox (badness 4556) in paragraph at lines 84--84
 []|[]\T1/lmss/bx/n/10 (+20) Embracing New Tech-niques in Deep Learn-ing for Es-
 ti-mat-ing Im-age Mem-o-ra-bil-ity[]\T1/lmss/m/n/10 (+20) ,
  []
 
 
-Underfull \hbox (badness 5105) in paragraph at lines 81--81
+Underfull \hbox (badness 5105) in paragraph at lines 89--89
 []|\T1/lmss/bx/n/10 (+20) Embracing New Tech-niques in Deep Learn-ing for Pre-d
 ict-ing Im-age Mem-o-ra-bil-ity\T1/lmss/m/n/10 (+20) ,
  []
 
-[2] (./cv.aux)
+
+Underfull \hbox (badness 5622) in paragraph at lines 91--91
+[]|\T1/lmss/bx/n/10 (+20) Memorability: A Stimulus-Centric Frame-work for An-a-
+lyz-ing Mem-ory Per-for-mance\T1/lmss/m/n/10 (+20) ,
+ []
+
+[2] [3] (./cv.aux)
 Package rerunfilecheck Info: File `cv.out' has not changed.
-(rerunfilecheck)             Checksum: F6226776B9AAC4DDC4CE7F1950CF2D8B;871.
+(rerunfilecheck)             Checksum: 2E615B8F1124A995E6043C16D5951CDD;783.
  ) 
 Here is how much of TeX's memory you used:
- 22028 strings out of 478994
- 399331 string characters out of 5864751
- 778059 words of memory out of 5000000
+ 22037 strings out of 478994
+ 399425 string characters out of 5864751
+ 771059 words of memory out of 5000000
  38987 multiletter control sequences out of 15000+600000
- 459389 words of font info for 99 fonts, out of 8000000 for 9000
+ 459844 words of font info for 103 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 117i,12n,116p,612b,837s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 117i,12n,116p,616b,837s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}</usr/share/texmf-dist/fo
 nts/type1/public/lm/lmss10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lms
 s12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmss17.pfb></usr/share/tex
@@ -924,10 +930,10 @@ mf-dist/fonts/type1/public/lm/lmss9.pfb></usr/share/texmf-dist/fonts/type1/publ
 ic/lm/lmssbx10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsso10.pfb></u
 sr/share/texmf-dist/fonts/type1/public/lm/lmsso9.pfb></usr/share/texmf-dist/fon
 ts/type1/public/marvosym/marvosym.pfb>
-Output written on cv.pdf (2 pages, 232661 bytes).
+Output written on cv.pdf (3 pages, 235581 bytes).
 PDF statistics:
- 99 PDF objects out of 1000 (max. 8388607)
- 85 compressed objects within 1 object stream
- 10 named destinations out of 1000 (max. 500000)
+ 104 PDF objects out of 1000 (max. 8388607)
+ 89 compressed objects within 1 object stream
+ 11 named destinations out of 1000 (max. 500000)
  32842 words of extra memory for PDF output out of 35830 (max. 10000000)
 
