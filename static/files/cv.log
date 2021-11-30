@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2021.11.9)  17 NOV 2021 16:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2021.11.29)  30 NOV 2021 15:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -917,7 +917,7 @@ Package rerunfilecheck Info: File `cv.out' has not changed.
  ) 
 Here is how much of TeX's memory you used:
  22037 strings out of 478994
- 399425 string characters out of 5864751
+ 399425 string characters out of 5864750
  771059 words of memory out of 5000000
  38987 multiletter control sequences out of 15000+600000
  459844 words of font info for 103 fonts, out of 8000000 for 9000
@@ -930,7 +930,7 @@ mf-dist/fonts/type1/public/lm/lmss9.pfb></usr/share/texmf-dist/fonts/type1/publ
 ic/lm/lmssbx10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsso10.pfb></u
 sr/share/texmf-dist/fonts/type1/public/lm/lmsso9.pfb></usr/share/texmf-dist/fon
 ts/type1/public/marvosym/marvosym.pfb>
-Output written on cv.pdf (3 pages, 235581 bytes).
+Output written on cv.pdf (3 pages, 235965 bytes).
 PDF statistics:
  104 PDF objects out of 1000 (max. 8388607)
  89 compressed objects within 1 object stream
