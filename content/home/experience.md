@@ -18,13 +18,17 @@ date_format = "Jan 2006"
 #   Leave `date_end` empty if it's your current employer.
 #   Begin/end multi-line descriptions with 3 quotes `"""`.
 [[experience]]
-  title = "Computational Social Science Research Assistant"
+  title = "Predoctoral Researcher"
   company = "Microsoft Research"
   location = "New York, NY"
   date_start = "2021-06-14"
   date_end = ""
   description = """
   Research assistant on multiple projects across the behavioral sciences.
+  Projects include:
+    - Examining past behavior of News Publishers to better understand the speed of the news cycle.
+    - Analysing text data using deep learning to better understand penetration of durable goods.
+    - Project Ratio
   """
 
 [[experience]]
