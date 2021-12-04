@@ -27,9 +27,9 @@ date_format = "Jan 2006"
   Research assistant on multiple projects across the behavioral sciences.
   Projects include:
 
-    - Examining past behavior of News Publishers to better understand the speed of the news cycle.
-    - Analysing text data using deep learning to better understand penetration of durable goods.
-    - Project Ratio
+  - Examining past behavior of News Publishers to better understand the speed of the news cycle.
+  - Analysing text data using deep learning to better understand penetration of durable goods.
+  - Project Ratio
   """
 
 [[experience]]
