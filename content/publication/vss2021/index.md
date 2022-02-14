@@ -11,7 +11,7 @@ links:
     - name: arXiv
       url: "https://arxiv.org/abs/2105.10598"
 
-publication: In *Proceedings of the Vision Sciences Society*
+publication: Computational Brain and Behavior (accepted for publication).
 
 abstract: Various work has suggested that the memorability of an image is consistent across people, and thus can be treated as an intrinsic property of an image. Using computer vision models, we can make specific predictions about what people will remember or forget.
 ---
