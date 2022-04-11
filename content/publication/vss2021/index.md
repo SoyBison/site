@@ -5,7 +5,7 @@ authors:
 - Coen D. Needell
 - Wilma A. Bainbridge
 
-publication_types: ["3"]
+publication_types: ["2"]
 publishDate: "2021-03-01T00:00:00Z"
 links: 
     - name: arXiv
