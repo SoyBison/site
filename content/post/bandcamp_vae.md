@@ -1,16 +1,16 @@
 ---
 # Documentation: https://wowchemy.com/docs/managing-content/
 
-title: "Videogameeconomies"
+title: "Bandcamp Variational Auto-Encoder"
 subtitle: ""
-summary: ""
+summary: "Can we generate album covers just by providing genre information?"
 authors: []
-tags: []
+tags: ["Machine Learning", "Music", "Computer Vision", "Generative Art"]
 categories: []
-date: 2021-03-29T20:26:43-05:00
-lastmod: 2021-03-29T20:26:43-05:00
+date: 2022-04-18T17:32:45-04:00
+lastmod: 2022-04-18T17:32:45-04:00
 featured: false
-draft: true 
+draft: true
 
 # Featured image
 # To use, add an image named `featured.jpg/png` to your page's folder.
@@ -27,3 +27,5 @@ image:
 #   Otherwise, set `projects = []`.
 projects: []
 ---
+
+
