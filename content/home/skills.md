@@ -30,6 +30,11 @@ subtitle = ""
   name = "Physics"
 
 [[feature]]
+  icon = 'robot'
+  icon_pack = 'fas'
+  name = 'Artifical Intelligence'
+
+[[feature]]
   icon = 'chart-line'
   icon_pack = 'fas'
   name = 'Economics'
@@ -40,14 +45,14 @@ subtitle = ""
   name = 'Python'
 
 [[feature]]
-  icon = 'robot'
-  icon_pack = 'fas'
-  name = 'Artifical Intelligence'
-
-[[feature]]
   icon = 'dice-d20'
   icon_pack = 'fas'
   name = 'Game Design'
+
+[[feature]]
+  icon = 'microscope'
+  icon_pack = 'fas'
+  name = 'Philosophy of Science'
 
 [[feature]]
   icon = 'pen-nib'
@@ -55,8 +60,20 @@ subtitle = ""
   name = 'Writing'
 
 [[feature]]
-  icon = 'microscope'
+  icon = 'linux'
+  icon_pack = 'fab'
+  name = "Linux"
+
+[[feature]]
+  icon = 'rust'
+  icon_pack = 'fab'
+  name = 'Rust'
+
+[[feature]]
+  icon = 'server'
   icon_pack = 'fas'
-  name = 'Philosophy of Science'
+  name = 'Data Engineering'
+
+
 
 +++
