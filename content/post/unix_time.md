@@ -62,7 +62,7 @@ This is a decent place to go for ideas, but you really have to sift through it t
 
 A lot of _ricers_ use [Arch Linux](https://www.archlinux.org), largely because it starts you out with a bare-bones operating system, and allows you to make every choice along the way, and truly make your OS your own. In this discussion I'll be using Arch Linux.
 
-That being said it's an absolute pain in the proverbial ass, and you should only try it if you're willing to waste a day and a half getting a handle on everything. If you're intrigued by this discussion, and want to try ricing, but don't want to spend this much time and effort on everything, try [Manjaro](https://manjaro.org/).
+That being said it's an absolute pain in the proverbial ass, and you should only try it if you're willing to waste a day and a half getting a handle on everything. If you're intrigued by this discussion, and want to try ricing, but don't want to spend this much time and effort on everything, try [Manjaro](https://manjaro.org/) or [EndeavourOS](https://endeavouros.com/) or [Garuda](https://garudalinux.org/).
 It's just as easy to customize, but it is also fully featured out-of-the-box, and you'll be able to do most of the stuff I do in this discussion verbatim.
 If you absolutely fall in love, then try Arch.
 
