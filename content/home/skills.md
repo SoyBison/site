@@ -15,9 +15,9 @@ subtitle = ""
 # For available icons, see: https://sourcethemes.com/academic/docs/widgets/#icons
 
 [[feature]]
-  icon = "r-project"
-  icon_pack = "fab"
-  name = "R"
+  icon = 'python'
+  icon_pack = 'fab'
+  name = 'Python'
 
 [[feature]]
   icon = "flask"
@@ -40,14 +40,14 @@ subtitle = ""
   name = 'Economics'
 
 [[feature]]
-  icon = 'python'
-  icon_pack = 'fab'
-  name = 'Python'
-
-[[feature]]
   icon = 'dice-d20'
   icon_pack = 'fas'
   name = 'Game Design'
+
+[[feature]]
+  icon = "r-project"
+  icon_pack = "fab"
+  name = "R"
 
 [[feature]]
   icon = 'microscope'
@@ -70,8 +70,23 @@ subtitle = ""
   name = 'Rust'
 
 [[feature]]
-  icon = 'server'
+  icon = 'database'
   icon_pack = 'fas'
   name = 'Data Engineering'
+
+[[feature]]
+  icon = 'code'
+  icon_pack = 'fas'
+  name = 'Web Development'
+
+[[feature]]
+  icon = 'cloud-arrow-up'
+  icon_pack = 'fas'
+  name = 'Cloud Computing'
+
+[[feature]]
+  icon = 'percent'
+  icon_pack = 'fas'
+  name = 'Statistics'
 
 +++
