@@ -14,11 +14,11 @@ role: Research Assistant (Pre-Doctoral)
 
 # Organizations/Affiliations
 organizations:
-- name: Microsoft Research, NYC
-  url: "https://www.microsoft.com/en-us/research/theme/computational-social-science/"
+- name: University of Pennsylvania
+  url: "https://css.seas.upenn.edu/"
 
 # Short bio (displayed in user profile at end of posts)
-bio: Student, Data Scientist, Philosopher, Mathematician, Freelancer. Currently working as a Research Assistant at Microsoft Research, pontificating about video games, and learning to play the classical guitar.
+bio: Student, Data Scientist, Philosopher, Mathematician, Freelancer. Currently working as a Research Assistant at the University of Pennsylvania, pontificating about video games, and learning to play the classical guitar.
 
 interests:
 - Artificial Intelligence
@@ -66,6 +66,6 @@ email: "coeneedell@gmail.com"
 user_groups: []
 ---
 
-I am a Research Assistant at Microsoft Research, NYC. I just finished a Masters of Computational Social Science program at the University of Chicago with my thesis research on using deep learning to estimate the memorability of images. As an undergraduate at Washington University in St. Louis, I majored in Physics and Economics, and minored in the Philosophy of Science. My work focuses on developing novel methods for social scientific concepts. My hobbies include analyzing video games, cooking, and playing classical guitar.
+I am a Research Assistant at the Computational Social Science Lab at University of Pennsylvania. I previously worked at Microsoft Research, NYC in the Computational Social Science group. I have a Masters of Computational Social Science from the University of Chicago with my thesis research on using deep learning to estimate the memorability of images. As an undergraduate at Washington University in St. Louis, I majored in Physics and Economics, and minored in the Philosophy of Science. My work focuses on developing novel methods for social scientific concepts. My hobbies include analyzing video games, cooking, and playing classical guitar.
 
 This site is intended to be a place for me to post my projects, some personal, some academic. They are mostly computational in nature, but some are philosophical.

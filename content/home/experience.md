@@ -19,16 +19,33 @@ date_format = "Jan 2006"
 #   Begin/end multi-line descriptions with 3 quotes `"""`.
 [[experience]]
   title = "Predoctoral Researcher"
-  company = "Microsoft Research"
-  location = "New York, NY"
-  date_start = "2021-06-14"
+  company = "University of Pennsylvania, Computational Social Science Lab"
+  company_url = "https://css.seas.upenn.edu/"
+  location = "Philadelphia, PA"
+  date_start = "2022-08-01"
   date_end = ""
   description = """
-  Research assistant on multiple projects across the behavioral sciences.
+  Research and Development on multiple projects across the behavioral sciences.
   Projects include:
 
   - Examining past behavior of News Publishers to better understand the speed of the news cycle.
-  - Analysing text data using deep learning to better understand penetration of durable goods.
+  - Constructing a "News Observatory" to monitor news publishers' behavior online. 
+  - Building a "Living Journal" to aid in the publication of social scientific research, and improving the rigor of non-scientific writing.
+    - Includes building a new statistical framework for use on the web, authorship management systems, and site management tools, all with a KISS-focused structure.
+  """
+
+[[experience]]
+  title = "Predoctoral Researcher"
+  company = "Microsoft Research"
+  location = "New York, NY"
+  date_start = "2021-06-14"
+  date_end = "2022-07-31"
+  description = """
+  Performed research on multiple projects across the behavioral sciences.
+  Projects include:
+
+  - Examining past behavior of News Publishers to better understand the speed of the news cycle.
+  - Analysing text data using deep learning to better understand market penetration of durable goods.
   - Project Ratio
   """
 

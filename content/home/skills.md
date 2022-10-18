@@ -74,6 +74,4 @@ subtitle = ""
   icon_pack = 'fas'
   name = 'Data Engineering'
 
-
-
 +++

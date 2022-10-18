@@ -222,7 +222,7 @@ Here are the problems I foresee.
 Here are the pros to using OpenBox that I can think of right away:
   - Traditional-ish setup, if someone else tries to use my laptop I don't have to walk them through every single keypress to do basic things.
   - Hella customizable. Because the configs are in XML, you can call pretty much arbitrary commands and scripts from them, including python. If I want to sit down and develop entire plugins for OpenBox, that's my prerogative.
-  - Well-developed, it has been a favorite alternate Window Manager for like 20 years, so there's a rich environment of mods tweaks and scripts for us to shameless steal from.
+  - Well-developed, it has been a favorite alternate Window Manager for like 20 years, so there's a rich ecosystem of mods tweaks and scripts for us to shamelessly steal from.
 
 Here is the installation line:
 
@@ -552,22 +552,7 @@ I'm going to add a window rule that makes all windows undecorated (no title or b
 Since we've got most of our hotkeys worked out, we don't really need upper-right hand controls. We lose some usability, but it'll be fine.
 We'll also drop the window borders for now.
 
-I rebooted around this time, and found that there was an issue with picom on restart. Let's take a look at it.
 
-### Picom Redux
-
-So, the xrender backend fails on a cold boot for some reason, I don't really want to go into why, let's just figure out a workaround. Dual_Kawase as a blur method is generally pretty efficient, but as we saw earlier, there's still some issues, it for some reason slows down randomly on this computer. Lets try out a gaussian instead.
-
-```python
-# ~/.config/picom/picom.conf
-blur-method = "gaussian"
-blur-deviation = 4
-blur-size=10
-```
-
-Here's a screenshot of `kitty` superimposed over some text from the web.
-
-![blur test](/media/rice/blur_test.png)
 
 [^1]: As a side-note, go play _Hacknet_, it has a wonderful story and great hacker-simulator-y puzzle gameplay.
 [^2]: True Linux Patriots will get mad at me for this, but the NVIDIA graphics card with proprietary drivers is non-negotiable because I am a deep learning researcher and I need to be able to run CUDA. This may magically change in the future if PyTorch figures out a way to support Nouveau, but for now, Nvidia is fine, and as Linux usage rises, I suspect the proprietary drivers will become more accepted, and our composition pipelines will get neater.
