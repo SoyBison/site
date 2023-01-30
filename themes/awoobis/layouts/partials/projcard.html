@@ -1,0 +1,15 @@
+<a class="card" href={{ .Permalink }}>
+    <div class="project card">
+        <h3> {{ .Title }} </h3>
+        <div class="card-icons">
+            {{ $ilen := len .Params.icons }}
+            {{ $rot := index (seq 40 | shuffle) 0 }}
+            {{range $index, $value := .Params.icons}}
+            {{ $ratio := div (float $index) (float $ilen) }}
+            {{ $theta := add (mul 360 $ratio) $rot}}
+            <i icon-name={{ $value }}
+                style="height: 20%; width: 20%; position: absolute; transform: rotate({{$theta}}deg) translate(100%) rotate({{sub 0 $theta}}deg)"></i>
+            {{end}}
+        </div>
+    </div>
+</a>

@@ -1,0 +1,59 @@
+/* dark.css */ 
+--font-color: #cdd6f4;
+--bg-color: #1e1e2e;
+
+/* Colors directly from catppuccin mocha, makes staying on scheme very easy 😃 */
+--rosewater: #f5e0dc;
+--flamingo: #f2cdcd;
+--pink: #f5c2e7;
+--mauve: #cba6f7;
+--red: #f38ba8;
+--maroon: #eba0ac;
+--peach: #fab387;
+--yellow: #f9e2af;
+--green: #a6e3a1;
+--teal: #94e2d5;
+--sky: #89dceb;
+--sapphire: #74c7ec;
+--blue: #89b4fa;
+--lavender: #b4befe;
+--text: #cdd6f4;
+--subtext1: #bac2de;
+--subtext0: #a6adc8;
+--overlay2: #9399b2;
+--overlay1: #7f849c;
+--overlay0: #6c7086;
+--surface2: #585b70;
+--surface1: #45475a;
+--surface0: #313244;
+--base: #1e1e2e;
+--mantle: #181825;
+--crust: #11111b;
+
+--link-color:#74c7ec;
+--link-state-color:#89b4fa;
+--link-state-border-color: #b4befe;
+
+--thead-bg-color: #343a40;
+--table-border-color: lightgrey;
+
+--nav-bg-color: #181825;
+--nav-link-color: #cba6f7;
+
+--pre-color: #f8f8f2;
+--pre-bg-color: #272822;
+
+--bq-color: #ccc;
+--hr-color: #a6adc8;
+
+--pagination-bg-color: #313244;
+--pagination-link-color: #b6b6b6;
+
+--post-info-color: #a6adc8;
+--minor-text-color: #7f849c;
+
+--switcher-color: #333;
+--switcher-bg-color: #fff;
+
+--svg-color: #ccc;
+--svg-state-color:#ff5858;

@@ -3,6 +3,7 @@ author: Coen D. Needell
 date: 2022-12-23
 title: "Neovim for Data Science, Part 1: Scripting"
 tags: ["Data Science", "tools", "software for science"]
+project: "nvim_data"
 ---
 
 Vim, "the ubiquitous text editor", has been with us since the 1980s, with new programmers discovering its arcane power every day.
@@ -56,7 +57,7 @@ When I type a word, in my mind I am not entering an arcane sequence of keypresse
 This cuts through the technical complexity, and the interface becomes simple again.
 The computer only perceives keypresses, it is up to the human to translate these into meaning.
 
-![The Modern Gamepad](/media/nvim/8bitdo.jpg "This one has a lot more than 12 buttons and 6 axes, but it is the gamepad I use. It's the 8bitdo ultimate controller. The traditional buttons are four face buttons (ABXY or ◯✖▲◼), the left and right buttons (or bumpers), the start and back buttons (here they're plus and minus, these tend to be the least codified as Sony and Microsoft keep changing them to chase trends), the Directional Pad (sometimes they're implemented as an axis that just maxes out when you press the button). The analog sticks have two axes each, up/down and left/right, and all modern game systems but the Nintendo Switch have an axis for each trigger, which is useful for driving cars in video games. This one also has a 'guide' button, which spawns a menu, a 'pair' button because it's bluetooth, which doesn't get sent to the computer, two buttons on the back where your middle fingers rest, and a gyroscope which implements 6 more axes, the gyroscope is becoming more and more standard for controllers. All in all it's a pretty complicated interface, but most games only use the traditional 12 buttons and 6 axes, and the Switch only supports four axes.")
+{{< figure src="/media/nvim/8bitdo.jpg" caption="This one has a lot more than 12 buttons and 6 axes, but it is the gamepad I use. It's the 8bitdo ultimate controller. The traditional buttons are four face buttons (ABXY or ◯✖▲◼), the left and right buttons (or bumpers), the start and back buttons (here they're plus and minus, these tend to be the least codified as Sony and Microsoft keep changing them to chase trends), the Directional Pad (sometimes they're implemented as an axis that just maxes out when you press the button). The analog sticks have two axes each, up/down and left/right, and all modern game systems but the Nintendo Switch have an axis for each trigger, which is useful for driving cars in video games. This one also has a 'guide' button, which spawns a menu, a 'pair' button because it's bluetooth, which doesn't get sent to the computer, two buttons on the back where your middle fingers rest, and a gyroscope which implements 6 more axes, the gyroscope is becoming more and more standard for controllers. All in all it's a pretty complicated interface, but most games only use the traditional 12 buttons and 6 axes, and the Switch only supports four axes." >}}
 
 With that brief philosophical interlude over, we can start talking about this particular keyboard-based interface.
 If at any time you would like to know more, or simply want an environment to practice on, vim and neovim are packaged with a tutor program designed to show you the ropes. Simply open neovim and type `:Tutor`.
