@@ -1,0 +1,31 @@
+{{ define "main" }}
+<section class="bio">
+    {{partial "pfp.html" .}}
+</section>
+<div class="homepage-content">
+    {{ .Content }}
+</div>
+<h1> Ongoing Projects </h1>
+<hr>
+<script src="https://unpkg.com/lucide@latest"></script>
+<!--Used for icons in the cardbox-->
+<div class="projects card-box">
+    {{ $projects := where (where site.RegularPages "Type" "==" "project") "File.LogicalName" "in"
+    site.Params.ongoingProjects }}
+    {{ range $projects }}
+    {{partial "projcard.html" .}}
+    {{end}}
+</div>
+<h1> Featured Posts </h1>
+<hr>
+<div class="articles h-feed">
+    {{ $pages := where (where site.RegularPages "Type" "in" site.Params.mainSections) "Params.hidden" "!=" true }}
+    {{ range (.Paginate $pages).Pages }}
+    {{ partial "post-summary.html" . }}
+    {{ end }}
+    {{ partial "pagination.html" . }}
+</div>
+<script>
+    lucide.createIcons();
+</script>
+{{ end }}

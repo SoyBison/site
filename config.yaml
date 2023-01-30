@@ -1,0 +1,50 @@
+baseURL: 'https://coen.needell.org'
+languageCode: 'en-us'
+title: 'Coen D. Needell'
+
+theme:  "awoobis"
+paginate: 10
+googleAnalytics: G-B24KF36Q4L
+enableRobotsTXT: true
+
+menu:
+  main:
+    - identifier: posts
+      name: Blog
+      title: Blog
+      url: /post/
+      weight: 1
+    - identifier: projects
+      name: Projects
+      title: Projects
+      url: /project/
+      weight: 2
+    - identifier: tags
+      name: Tags
+      title: Tags
+      url: /tags/
+      weight: 3
+
+params:
+  author: Coen D. Needell
+  description: 
+  style: dark-without-switcher
+
+  ongoingProjects: ["news_observatory.md", "living_journal.md", "nvim_data.md"]
+  social:
+    - id: github
+      name: soybison
+    - id: linkedin
+      url: "https://www.linkedin.com/in/coen-needell-b4503216a/"
+    - id: blank
+    - id: cv
+      url: "/files/cv.pdf"
+  rssAsSocialIcon: true
+
+taxonomies:
+  tags: tags
+  project: projects
+
+security:
+  exec:
+    allow: ['^dart-sass-embedded$', '^go$', '^npx$', '^postcss$', '^rst2html$']
