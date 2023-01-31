@@ -905,12 +905,16 @@ div.pfp {
 #pfp-container div.pfp-top {
     z-index: -1;
     background-image: url("/media/avatar.jpeg");
+    background-position: center;
+    background-size: 120%;
 }
 #pfp-container:hover .pfp-top {
     transform: translate(20vh, -5vh);
+    background-position: 10px -50px;
 }
 #pfp-container:hover .pfp-bottom {
     transform: translate(-20vh, -5vh);
+    background-position: -20px center;
 }
 
 
