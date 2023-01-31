@@ -30,7 +30,7 @@ html {
 }
 
 body {
-    font-size: 16pt;
+    font-size: 18px;
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
     color: var(--font-color);
@@ -241,10 +241,13 @@ header h2 {
     font-weight: 700;
 }
 
+
 header nav:not(:empty){
+    background: var(--nav-bg-color);
     margin-top: 1em;
     max-width: 100%;
     text-align: center;
+    padding: 0.5em 0;
 }
 
 header nav a {
