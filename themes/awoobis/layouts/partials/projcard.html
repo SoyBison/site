@@ -1,6 +1,6 @@
 <a class="card" href={{ .Permalink }}>
     <div class="project card">
-        <h3> {{ .Title }} </h3>
+        <h3 class="card"> {{ .Title }} </h3>
         <div class="card-icons">
             {{ $ilen := len .Params.icons }}
             {{ $rot := index (seq 40 | shuffle) 0 }}
