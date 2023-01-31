@@ -929,6 +929,15 @@ div.pfp {
 @media (max-width: 940px) {
     body {
         font-size: 12pt;
+        margin: 0;
+        padding: 0;
+    }
+    article.h-entry {
+        margin: 3vw;
+    }
+    .container{
+        margin: 0;
+        padding: 0;
     }
     .main-wrapper {
         margin: 0;
