@@ -401,16 +401,16 @@ article {
     color: var(--text);
     transition-duration: 0.5s;
 }
-article:nth-child(3n-1) {
+article.h-feed:nth-child(3n-1) {
     transform: rotate(-2deg) translate(1.15em, -0.3em);
 }
-article:nth-child(3n-2) {
+article.h-feed:nth-child(3n-2) {
     transform: rotate(0.7deg) translate(-0.2em, -0.5em);
 }
-article:nth-child(3n) {
+article.h-feed:nth-child(3n) {
     transform: rotate(3deg) translate(-1em, -0.3em);
 }
-article:hover {
+article.h-feed:hover {
     transform: scale(1.05);
 }
 
