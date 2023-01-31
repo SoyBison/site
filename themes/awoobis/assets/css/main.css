@@ -939,9 +939,15 @@ div.pfp {
     }
 
     .container {
-        max-width: 90%;
+        max-width: 100%;
         margin: 0 auto;
         word-wrap: break-word;
+    }
+    a.card h3{
+        font-size: 8pt;
+    }
+    div.card-icons{
+        top: 7vw;
     }
 
     .pagination-item {
