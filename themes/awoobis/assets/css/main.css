@@ -402,13 +402,13 @@ article {
     transition-duration: 0.5s;
 }
 article.h-feed:nth-child(3n-1) {
-    transform: rotate(-2deg) translate(1.15em, -0.3em);
+    transform: rotate(-1deg) translate(1.15em, -0.3em);
 }
 article.h-feed:nth-child(3n-2) {
     transform: rotate(0.7deg) translate(-0.2em, -0.5em);
 }
 article.h-feed:nth-child(3n) {
-    transform: rotate(3deg) translate(-1em, -0.3em);
+    transform: rotate(1deg) translate(-1em, -0.3em);
 }
 article.h-feed:hover {
     transform: scale(1.05);
@@ -929,11 +929,11 @@ div.pfp {
 @media (max-width: 940px) {
     body {
         font-size: 12pt;
-        margin: 0;
+        margin: 3vw;
         padding: 0;
     }
     article.h-entry {
-        margin: 3vw;
+        margin: 0;
     }
     .container{
         margin: 0;
