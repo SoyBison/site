@@ -392,7 +392,6 @@ main h1 {
 div.h-feed {
     display: flex;
     flex-direction: column;
-    margin: auto;
 }
 article {
     background: var(--mantle);
@@ -404,11 +403,6 @@ article {
     box-shadow: 10px 10px 15px var(--crust);
     color: var(--text);
     transition-duration: 0.5s;
-}
-article.h-feed {
-    /*aspect-ratio: 7/5;*/
-    width: 50vw;
-    margin: auto 0;
 }
 
 article.h-feed:nth-child(3n-1) {
