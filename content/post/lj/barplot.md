@@ -2,7 +2,6 @@
 title: "Living Journal Data Visualizations: Overview"
 date: 2023-02-01T11:59:42-05:00
 project: living_journal
-draft: true
 focus: true
 summary: "**Problem:** pretty, dynamic data visualization frameworks are either powerful, but difficult to use (like D3.js) or limited in scope and comparatively heavy for the web (like observable). Using Hugo modules and shortcodes, we can create a system of modules for integrating data visualizations with markdown blogging. This post introduces core concepts, and details the development of a simple visualization."
 ---

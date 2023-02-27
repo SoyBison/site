@@ -4,4 +4,4 @@ module github.com/SoyBison/site
 
 go 1.19
 
-require github.com/Watts-Lab/LivingJournal-Tools/data_vis v0.0.4 // indirect
+require github.com/Watts-Lab/LivingJournal-Tools/data_vis v0.1.0 // indirect
