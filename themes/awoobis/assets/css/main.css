@@ -19,6 +19,10 @@
 }
 {{ end }}
 
+:root {
+    --bar-chart-padding: 5;
+}
+
 /* Basic */
 html {
     font-family: "Montserrat", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -27,7 +31,9 @@ html {
     /* 2 */
     -webkit-text-size-adjust: 100%;
     /* 2 */
+    scroll-behavior: smooth;
 }
+
 
 body {
     font-size: 18px;
@@ -38,6 +44,21 @@ body {
     max-width: 1200px;
     margin: auto;
     padding: 2rem;
+}
+
+em {
+    font-weight: 500;
+}
+
+
+
+
+article li {
+    padding: .5rem;
+}
+
+article li::marker {
+    color: var(--green);
 }
 
 .copyright {
@@ -142,7 +163,31 @@ a.skip-main:active {
     text-decoration: underline;
     border: none;
 }
-/* Project Cards */
+/* The Call and response thing*/
+.response {
+    border-left: 0px;
+    border-right: 2px solid var(--subtext0);
+    text-align: right;
+    font-weight: 300;
+    font-style: italic;
+}
+/* Focus directive */
+.focus {
+    text-align: center;
+    background: var(--surface1);
+    font-weight: 800;
+    color: var(--rosewater);
+    font-family: "FiraCode Mono", monospace;
+    margin: 20px auto;
+    width: min-content;
+    white-space: nowrap;
+    padding: 4px 10px;
+    border-radius: 5px;
+    border-top: 2px solid var(--overlay1);
+    border-left: 1px solid var(--overlay1);
+    box-shadow: 10px 10px 5px var(--crust);
+    transition-duration: 0.1s;
+}
 
 /* Table */
 thead {
@@ -175,11 +220,17 @@ code,
 pre,
 kbd {
     color: var(--pre-color);
+    padding: 5px 2px;
     background-color: var(--pre-bg-color);
-    font-family: monospace;
+    font-family: "Ioskeva Mono", monospace;
     font-size: 0.90em;
     line-height: 154%;
 }
+.highlight code {
+    position: relative;
+    overflow: wrap;
+}
+
 
 pre code, pre kbd {
     color: inherit;
@@ -831,6 +882,7 @@ ul.language-select > li, ul.footer-menu > li {
 }
 .highlight pre {
     padding-right: 75px;
+    white-space: pre-wrap;
 }
 
 .highlight:hover .highlight-copy-btn {
@@ -931,6 +983,18 @@ div.pfp {
     margin-bottom: 30px;
 }
 
+input[type=text] {
+    display: block;
+    width: 61%;
+    margin: auto auto;
+    text-align: center;
+    border: 1px solid var(--subtext0);
+    border-radius: 5px;
+    background-color: var(--text);
+    color: var(--base)
+
+}
+
 
 /* Media Queries */
 
@@ -991,6 +1055,20 @@ div.pfp {
     }
 }
 
+/*Data visualization stuff*/
+div.chart-container {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    align-items: center;
+    width: 100%;
+}
+
+.chart {
+    /*display: inline-block;*/
+    margin: auto;
+}
+
 {{ range site.Params.customCSS }}
     {{ $custom := resources.Get . }}
     {{ $custom.Content }}
@@ -1005,3 +1083,4 @@ div.pfp {
     z-index: 1;
   }
 {{ end }}
+

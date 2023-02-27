@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+
 import os
 
 import polars as pl
@@ -9,8 +10,8 @@ import json
 nythosts = []
 for line in open("./data/nythosts.json", "r"):
     nythosts.append(json.loads(line))
-nythosts = list(filter(lambda j: 'http' in j, nythosts))
 
+nythosts = list(filter(lambda j: 'http' in j, nythosts))
 
 foxhosts = []
 for line in open("./data/foxhosts.json", "r"):

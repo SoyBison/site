@@ -1,0 +1,12 @@
+
+<p class="focus">
+    {{ $parent_flag := "root" }}
+
+    {{ if .Parent }}
+    {{ $parent_flag = printf "%s-%s" .Parent.Name (string .Parent.Ordinal) }}
+    {{end}}
+
+    {{ $child_flag := printf "%s-%s" .Name (string .Ordinal)  }}
+    ID: {{ printf "%s-%s" $parent_flag $child_flag }}
+</p>
+

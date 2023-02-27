@@ -30,18 +30,23 @@
 --mantle: #181825;
 --crust: #11111b;
 
---link-color:#74c7ec;
+/* charts */
+--bar-chart-fill: var(--text);
+--bar-chart-axis: var(--subtext0);
+
+/* links */
+--link-color: var(--lavender);
 --link-state-color:#89b4fa;
 --link-state-border-color: #b4befe;
 
 --thead-bg-color: #343a40;
---table-border-color: lightgrey;
+--table-border-color: var(--overlay2);
 
 --nav-bg-color: #181825;
 --nav-link-color: #cba6f7;
 
---pre-color: #f8f8f2;
---pre-bg-color: #272822;
+--pre-color: var(--subtext1);
+--pre-bg-color: var(--base);
 
 --bq-color: #ccc;
 --hr-color: #a6adc8;
