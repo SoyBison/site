@@ -3,6 +3,7 @@ author: Coen D. Needell
 date: 2023-02-26
 title: "Neovim for Data Science, Part 2: Interactive Mode"
 tags: ["Data Science", "tools", "software for science"]
+draft: true
 project: "nvim_data"
 ---
 
