@@ -1022,6 +1022,9 @@ input[type=text] {
         padding-left: 25px;
         padding-right: 25px;
     }
+    .focus {
+        white-space: normal;
+    }
 
     .container {
         max-width: 100%;

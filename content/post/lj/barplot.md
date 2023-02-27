@@ -391,6 +391,12 @@ The css we need to add looks like this:
     width: 100%;
     margin: auto;
     display: inline-block;
+} 
+/* forces h-flex to actually be v-flex on mobile because otherwise the plots are too small */
+@media (max-width: 940px){
+    .vis-flex {
+        flex-direction: column;
+    }
 }
 
 ```
@@ -620,7 +626,7 @@ For some charts, these should probably be generated automatically, with an overr
 In order to add something like that, we need to make a decision about how an author should invoke "modifiers" like this to a chart shortcode.
 
 Here are the options:
-- We could create a "chart" environment shortcode, which would be invoked like this:
+> We could create a "chart" environment shortcode, which would be invoked like this:
 
 ```html
 {{</* chart */>}}
@@ -630,7 +636,7 @@ Here are the options:
 ```
 While technically `ggplot2` for `R` uses objects and operations, it's syntactically similar to environments like this. In `ggplot2` we create a `ggplot` object and then add features to it.
 
-- We could have the relationship between shortcodes be defined implicitly:
+> We could have the relationship between shortcodes be defined implicitly:
 
 ```html
 {{</* title "PEW Research Respondants by Marital Status */>}}
@@ -639,7 +645,7 @@ While technically `ggplot2` for `R` uses objects and operations, it's syntactica
 
 This works a lot like `matplotlib`'s `pyplot` feature, where there's an object behind the scenes whose properties are edited through functional side effects.
 
-- Or we could control things using keyword arguments
+> Or we could control things using keyword arguments
 
 ```html
 {{</* countplot "pew_data" "F_EDUCCAT" title="PEW Research Respondants by Education" */>}}
