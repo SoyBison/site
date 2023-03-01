@@ -1,5 +1,5 @@
 ---
-title: "Living Journal Data Visualizations: Overview"
+title: "Data Visualizations: Overview"
 date: 2023-02-01T11:59:42-05:00
 project: living_journal
 focus: true
@@ -12,8 +12,7 @@ Imagine you're running a Hugo site, or some other static site generator-produced
 You want to be able to build beautiful, modern plots, on the fly.
 You want your less web-dev oriented staff to be able to do this as well with minimal effort.
 
-In our case, we're constructing a communications site as a vector to share our research.
-We are calling it the Living Journal, and in this series of blog posts, I'm going to address the how and why of our site structure, process of development, and most importantly the data visualization scheme.
+I'm looking into making this a little easier for myself and my colleagues; many of us use Hugo already.
 
 This first post will cover the approach to data visualization, and the development of a simple data visualization module.
 Further posts will act as dev logs, and advice for anyone trying to develop more modules in this style in the future.
@@ -827,6 +826,7 @@ We can also use the column selector as part of the data processing pipeline. We'
 {{< interactive_filter "pew_filt" "pew_data" "demo_column_2" >}}
 
 {{< chart >}}
+    {{< title "Respondants in filtered column by party affiliation" >}}
     {{< countplot "pew_filt" "F_PARTY_FINAL" >}}
 {{< /chart >}}
 
