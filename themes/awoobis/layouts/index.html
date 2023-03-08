@@ -1,10 +1,19 @@
 {{ define "main" }}
-<section class="bio">
-    {{partial "pfp.html" .}}
-</section>
-<div class="homepage-content">
-    {{ .Content }}
+
+<div class="bio-container">
+    <section class="bio" id="bio-section">
+        {{partial "pfp.html" . }}
+    </section>
+    <div class="homepage-content card">
+            {{ .Content }}
+    </div>
 </div>
+
+<hr class="hero-container">
+<section class="hero-container">
+        {{partial "hero.html" . }}
+</section>
+
 <h1> Ongoing Projects </h1>
 <hr>
 <script src="https://unpkg.com/lucide@latest"></script>

@@ -50,7 +50,16 @@ em {
     font-weight: 500;
 }
 
-
+h1.my-name{
+    display: inline-block;
+    padding: 1em 0.05em;
+    font-size: clamp(2em, 1vw, 4em);
+    font-weight: 700;
+    /*position: absolute;*/
+    color: var(--lavender);
+    transition: transform 10000ms;
+    transition-timing-function: linear;
+}
 
 
 article li {
@@ -255,6 +264,8 @@ hr {
     background-color: var(--hr-color);
     border: none;
     height: 1px;
+    width: 90vw;
+    margin: auto;
 }
 
 /* Header */
@@ -741,6 +752,7 @@ div.card {
     flex-direction: column;
     height: 100%;
 }
+
 div.card-icons{
     height: 80%;
     width: 100%;
@@ -922,8 +934,11 @@ ul.language-select > li, ul.footer-menu > li {
 /*Author Profile*/
 #pfp-container {
     position: relative;
-    height: 30vh;
-    width: 30vh;
+    height: 20vh;
+    width: 20vh;
+    margin: auto;
+    padding-top: 0;
+
 }
 div.pfp {
     display: flex;
@@ -931,20 +946,21 @@ div.pfp {
     flex-direction: column;
 }
 #pfp-container {
-    margin-top: 10vh;
+    margin-top: 5vh;
+    padding-right: 2em;
 }
 
 #pfp-container div {
     position: absolute;
-    height: 30vh;
-    width: 30vh;
+    height: 20vh;
+    width: 20vh;
     border-radius: 50%;
-    background-size: 30vh;
+    background-size: 20vh;
     border-top: 2px solid var(--surface0);
     border-left: 1px solid var(--surface0);
     box-shadow: 10px 10px 15px var(--crust);
     transition-duration: 1s;
-    transition: all 1s;
+    transition: transform 1s, background-position 1s;
 }
 #pfp-container div.pfp-bottom {
     background-image: url("/media/git_avatar.png");
@@ -961,12 +977,77 @@ div.pfp {
     background-size: 120%;
 }
 #pfp-container:hover .pfp-top {
-    transform: translate(20vh, -5vh);
-    background-position: 10px -50px;
+    transform: translate(50%, -5%);
+    background-position: 10px center;
 }
 #pfp-container:hover .pfp-bottom {
-    transform: translate(-20vh, -5vh);
+    transform: translate(-50%, -5%);
     background-position: -20px center;
+}
+
+/* featured vis "hero" */
+.figure-container{
+    width: 100%;
+    height: 80vh;
+    padding: none;
+    margin: auto;
+}
+.tooltip {
+    border-radius: 10px;
+    padding: 10px;
+    background: var(--mantle);
+    width: min-content;
+    white-space: nowrap;
+    font-size: small;
+    border-top: 1px solid var(--surface1);
+    border-left: 1px solid var(--surface1);
+    box-shadow: 10px 10px 15px var(--crust);
+}
+
+.figure-container > svg {
+    width: 90%;
+    height: 100%;
+    padding: 1em;
+    display: inline-block;
+}
+.figure-container > svg > svg {
+    width: 90%;
+    height: 100%;
+    display: inline-block;
+    padding: 1em;
+}
+
+.bio-container {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    margin-left: -10%;
+    width: 130%;
+    padding-bottom: 5vh;
+    justify-content: space-between;
+}
+
+.bio {
+    flex: 0 1 10vw;
+    width: min-content;
+    padding: 0;
+    margin: 1em;
+}
+
+#name-container{
+    white-space: nowrap;
+    margin-left: 1em;
+}
+
+
+.hero {
+    flex: 1 0 33vw;
+}
+
+h2.hero {
+    font-size: x-large;
+    font-weight: 800;
+    text-align: center;
 }
 
 
@@ -978,6 +1059,8 @@ div.pfp {
     border-top: 2px solid var(--surface0);
     border-left: 1px solid var(--surface0);
     box-shadow: 10px 10px 15px var(--crust);
+    width: 50%;
+    margin: auto;
 }
 .homepage-content > p:not(:last-child) {
     margin-bottom: 30px;
@@ -1001,8 +1084,14 @@ input[type=text] {
 @media (max-width: 940px) {
     body {
         font-size: 12pt;
-        margin: 3vw;
         padding: 0;
+    }
+    header {
+        margin: auto;
+        padding: 1em;
+    }
+    main {
+        margin: auto;
     }
     article.h-entry {
         margin: 0;
@@ -1055,6 +1144,73 @@ input[type=text] {
 
     .post-pagination .pagination-item {
         max-width: 10em;
+    }
+
+    /*bio section basically gets totally redesigned*/
+    .bio-container {
+        flex-direction: column;
+        width: 100%;
+        margin: auto;
+    }
+    .homepage-content {
+        width: 80%;
+    }
+    #name-container {
+        flex: 1 0 50%;
+        padding-left: 0vw;
+    }
+    h1.my-name {
+        font-size: clamp(1.5em, 2vw, 4em);
+    }
+    .bio {
+        width: 80%;
+        flex: 0 1 10vh;
+        margin: auto;
+    }
+    div.pfp {
+        flex-direction: column;
+        justify-content: start;
+    }
+    #pfp-container {
+        flex: 0 10 15vw;
+        height: 100%;
+        width: 10vw;
+        margin: 5vw;
+    }
+    #pfp-container div {
+        height: 100%;
+        width: auto;
+        aspect-ratio: 1;
+    }
+
+    #pfp-container div.pfp-bottom {
+        background-image: url("/media/git_avatar.png");
+        z-index: 0;
+        opacity: 1;
+        border-top: 2px solid var(--surface0);
+        border-left: 1px solid var(--surface0);
+        box-shadow: 10px 10px 15px var(--crust);
+        background-size: cover;
+    }
+    #pfp-container div.pfp-top {
+        z-index: -1;
+        background-image: url("/media/avatar.jpeg");
+        background-position: center;
+        background-size: 120%;
+    }
+    #pfp-container:hover .pfp-top {
+        transform: translate(120%, 0vh);
+        background-position: 5px center;
+    }
+    #pfp-container:hover .pfp-bottom {
+        transform: translate(-120%, 0vh);
+        background-position: 0px center;
+    }
+}
+
+@media (max-width: 500px) {
+    .hero-container{
+        display: none;
     }
 }
 

@@ -8,3 +8,4 @@ nslookup nytimes.com
 if [ -z "$(ls -f ./*.json)" ]; then
     echo "Error: Run make to do all the data processing." 1>&2 
 fi
+
