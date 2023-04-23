@@ -1,105 +1,87 @@
 $(document).ready(function() {
-    let tarchart = $('#featured_dataviz')
-    let fill_color = getComputedStyle(document.documentElement).getPropertyValue('--mauve');
-    let axis_color = getComputedStyle(document.documentElement).getPropertyValue('--bar-chart-axis');
-    let bar_padding = getComputedStyle(document.documentElement).getPropertyValue('--bar-chart-padding');
-    let surface_color = getComputedStyle(document.documentElement).getPropertyValue('--surface0');
 
-    let tooltip_gen = function(mo_event){
-        let name = mo_event.srcElement.__data__.properties.NAME
-        let value = mo_event.srcElement.__data__.unemp
-        return `<h2>${name}</h2>
-            <p>Unemployment Rate: <b>${value}%</b></p>`
-    }
+  let container = document.getElementById('featured-dataviz');
+  let renderer = new THREE.WebGLRenderer({antialias: true, alpha: true});
+  renderer.setSize(container.clientWidth, container.clientHeight);
+  renderer.setClearColor(0x000000, 0);
+  container.appendChild(renderer.domElement);
 
-    let margin = {top: 10, right: 30, bottom: 10, left: 30},
-        width = tarchart.width() - margin.left - margin.right,
-        height = tarchart.height() - margin.top - margin.bottom;
-    let rheight = height + margin.top + margin.bottom;
-    let rwidth = width + margin.left + margin.right;
+  const edgeParams = {
+    color: 0x000000,
+    reflectivity: 0,
+    roughness: 1,
+  }
 
-    let tooltip = d3.select(".figure-container")
-        .append("div")
-        .attr("class", "tooltip")
-        .style("z-index", "100")
-        .style("position", "relative")
-        .style("visibility", "hidden")
-        .style("color", axis_color)
+  let scene = new THREE.Scene();
+  let camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
+  scene.add(camera);
 
+  let geometry = new THREE.IcosahedronGeometry(10, 1);
+  let material = new THREE.MeshPhysicalMaterial({
+    color: 0xffffff,
+    thickness: 1,
+    clearcoat: 1,
+    specularIntensity: 0,
+    clearcoatRoughness: 1,
+    roughness: 0.2,
+    ior: 2.33,
+    transmission: 0.6});
+  let shape = new THREE.Mesh(geometry, material);
+  let edge_geo = new THREE.EdgesGeometry(geometry);
+  //let edge_mat = new THREE.LineBasicMaterial({color: 0xffffff, linewidth: 1, linecap: 'butt', linejoin: 'miter'});
+  //let wireframe = new THREE.LineSegments(edge_geo, edge_mat);
+  //shape.add(wireframe);
 
-    let projection = d3.geoAlbersUsa()
-        .scale(rwidth*1.20)
-        .translate([rwidth / 2, rheight / 2]);
-    
-    let county_shapes = d3.json("/data/uscounties.json")
-    let econdata = d3.csv("/data/bls_employment.csv")
-    let svg = d3.select('#featured_dataviz')
-                .append("svg")
-                .attr("viewBox", `0 0 ${rwidth} ${rheight}`)
-                .attr("id", "hero-map")
-                .append("g")
-                .attr("transform",
-                    "translate(" + margin.left + "," + margin.top + ")");
+  let wirethickness = 0.12;
+  for (let i = 0; i < edge_geo.attributes.position.count - 1; i+=2) {
+    let startPoint = new THREE.Vector3(edge_geo.attributes.position.array[i * 3 + 0],
+                                       edge_geo.attributes.position.array[i * 3 + 1],
+                                       edge_geo.attributes.position.array[i * 3 + 2]);
+    let endPoint = new THREE.Vector3(edge_geo.attributes.position.array[i * 3 + 3],
+                                     edge_geo.attributes.position.array[i * 3 + 4],
+                                     edge_geo.attributes.position.array[i * 3 + 5]);
+    let cylLength = new THREE.Vector3().subVectors(endPoint, startPoint).length();
+    let cylGeo = new THREE.CylinderGeometry(wirethickness, wirethickness, cylLength, 16);
+    cylGeo.translate(0, cylLength / 2, 0);
+    cylGeo.rotateX(Math.PI / 2);
+    let cylMesh = new THREE.Mesh(cylGeo, new THREE.MeshPhysicalMaterial(edgeParams));
+    cylMesh.position.copy(startPoint);
+    cylMesh.lookAt(endPoint);
+    shape.add(cylMesh);
+  }
 
-    let setup = function() {
+  scene.add(shape);
+  let coloredIntensity = 1
 
-        Promise.all([county_shapes, econdata]).then(function(dl) {
+  let ambi = new THREE.AmbientLight(0xffffff, 1);
+  scene.add(ambi);
+  let rlight = new THREE.DirectionalLight(0xff0000, coloredIntensity);
+  rlight.position.set(0, 15, 20);
+  scene.add(rlight);
+  let glight = new THREE.DirectionalLight(0x00ff00, coloredIntensity);
+  glight.position.set(-10, -15, 10);
+  scene.add(glight);
+  let blight = new THREE.DirectionalLight(0x0000ff, coloredIntensity);
+  blight.position.set(10, -15, 10);
+  scene.add(blight);
+  rlight.target = shape;
+  glight.target = shape;
+  blight.target = shape;
 
-            let margin = {top: 10, right: 30, bottom: 10, left: 30},
-                width = tarchart.width() - margin.left - margin.right,
-                height = tarchart.height() - margin.top - margin.bottom;
+  camera.position.z = 25;
+  camera.position.x = 0;
+  camera.position.y = -10;
+  camera.lookAt(0, 0, 0);
 
-            let rheight = height + margin.top + margin.bottom;
-            let rwidth = width + margin.left + margin.right;
-            let projection = d3.geoAlbersUsa()
-                .scale(rwidth*1.25)
-                .translate([rwidth / 2, rheight / 2 - 50]);
+  function animate() {
+    requestAnimationFrame(animate);
+    camera.aspect = container.clientWidth / container.clientHeight;
+    camera.updateProjectionMatrix();
 
-            d3.select('#featured_dataviz').selectAll("svg").remove()
-
-            let svg = d3.select('#featured_dataviz')
-                        .append("svg")
-                        .attr("viewBox", `0 0 ${rwidth} ${rheight}`)
-                        .attr("id", "hero-map")
-                        .append("g")
-                        .attr("transform",
-                            "translate(" + margin.left + "," + margin.top + ")");
-
-            topo = dl[0]
-            let data = dl[1]
-            let datmap = new Map(Array.from(data, d => [`${d.State}${d.County}`, +d["(%)"]]))
-
-            topo.features = topo.features.filter(d => d.properties.STATE != "02")
-            c = d3.scalePow().exponent(0.5).domain(d3.extent(data.map(d => +d["(%)"])))
-                .range(["#000000", fill_color])
-
-            svg.selectAll("path")
-                .data(topo.features)
-                .enter()
-                .append("path")
-                    .attr("d", d3.geoPath()
-                        .projection(projection)
-                    )
-                    .style("stroke", "#000000")
-                    .style("stroke-width", ".3px")
-                    .attr("fill", d => {
-                        let st = d.properties.STATE;
-                        let co = d.properties.COUNTY;
-                        d.unemp = datmap.get(st + co);
-                        return c(d.unemp);
-                    })
-                    .attr("class", function(d) { return "County"})
-                    .attr("data-name", function(d) {return d.properties.NAME})
-                    .on("mouseover", d => {tooltip.html(tooltip_gen(d)); tooltip.style("visibility", "visible")})
-                    .on("mousemove", d => {tooltip.style("top", (d3.pointer(d)[1]-rheight) + "px").style("left", d3.pointer(d)[0]+"px");})
-                    .on("mouseout", _ => {tooltip.style("visibility", "hidden")})
-        }
-        )
-        console.log("setup run")
-    }
-
-    setup()
-    //document.getElementById("featured_dataviz").addEventListener("resize", setup);
-    window.addEventListener("resize", setup)
+    shape.rotation.x += 0.0010;
+    shape.rotation.y += 0.0075;
+    renderer.render(scene, camera);
+  }
+  animate();
 
 });

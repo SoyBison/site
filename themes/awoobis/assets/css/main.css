@@ -988,9 +988,15 @@ div.pfp {
 /* featured vis "hero" */
 .figure-container{
     width: 100%;
-    height: 80vh;
     padding: none;
     margin: auto;
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+}
+.commentary{
+  margin: auto auto;
+  padding-top: 1em;
 }
 .tooltip {
     border-radius: 10px;
@@ -1038,10 +1044,14 @@ div.pfp {
     white-space: nowrap;
     margin-left: 1em;
 }
-
+#featured-dataviz {
+  width: 100%;
+  height: 100%;
+  flex: 1 0 60vh;
+}
 
 .hero {
-    flex: 1 0 33vw;
+    flex: 0 1 0vw;
 }
 
 h2.hero {
