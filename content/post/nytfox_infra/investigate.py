@@ -22,8 +22,6 @@ foxhosts = list(filter(lambda j: 'http' in j, foxhosts))
 nytaddr = list(map(lambda j: j['http']['host'], nythosts))
 foxaddr = list(map(lambda j: j['http']['host'], foxhosts))
 
-owo = "owo"
-
 #%%
 
 def loc_tab(tar, data):
@@ -37,7 +35,7 @@ nyt_loc_tab["host"] = nytaddr
 foxlocs = pl.DataFrame(fox_loc_tab)
 nytlocs = pl.DataFrame(nyt_loc_tab)
 
-#%% 
+#%%
 
 print("foxlocs:")
 print(foxlocs)
