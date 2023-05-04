@@ -70,7 +70,7 @@ $(document).ready(function() {
 
   camera.position.z = 25;
   camera.position.x = 0;
-  camera.position.y = -10;
+  camera.position.y = -20;
   camera.lookAt(0, 0, 0);
   function updateBeans(){
     let obj = null;
