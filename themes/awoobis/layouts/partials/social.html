@@ -28,6 +28,19 @@
     </li>
     {{ end }}
     {{ end }}
+    {{ if (isset .Site.Params "resumes") }}
+    <li class="resume-container">
+      <a title="resumes" class="social-icon" rel="me">
+        {{ partial "font-awesome.html" (dict "iconName" "cv" "custom" true) }}</a>
+      <div class="resume-links">
+      {{ range .Site.Params.resumes }}
+        <a href="{{ printf .url }}" title="resume" class="social-icon resume-icon" rel="me">
+          {{ .title }} {{ partial "font-awesome.html" (dict "iconName" .icon "custom" true) }}
+        </a>
+      {{ end }}
+      </div>
+    </li>
+    {{ end }}
     {{ if .Site.Params.rssAsSocialIcon }}
     {{ with .Site.Home.OutputFormats.Get "rss" -}}
     <li>

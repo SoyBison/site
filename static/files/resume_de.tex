@@ -1,0 +1,92 @@
+\documentclass[10pt,a4paper,sans]{moderncv}
+
+%% ModernCV themes
+\moderncvstyle{classic}
+\moderncvcolor{black}
+\renewcommand{\familydefault}{\sfdefault}
+\nopagenumbers{}
+
+%% Character encoding
+\usepackage[utf8]{inputenc}
+
+%% Adjust the page margins
+\usepackage[scale=0.85]{geometry}
+\usepackage{tabularx}
+%% Personal data
+\name{Coen}{D. Needell}
+\title{Résumé}
+\mobile{+1~(970)~456~2411}
+\email{coen@needell.org}
+\social[github]{SoyBison}
+\social[linkedin]{coen-needell-b4503216a}
+\homepage{coen.needell.org}
+\photo[64pt][1pt]{avatar}
+
+
+%%------------------------------------------------------------------------------
+%% Content
+%%------------------------------------------------------------------------------
+
+\begin{document}
+\makecvtitle
+
+\section{Overview}
+{\large
+ Philosophically and Scientifically Driven Data Engineer.
+ 3+ years of experience in Computational Social Science doing independent systems-driven research in academic and industry labs, with multiple projects in parallel.
+ Strong focus on human-computer systems.
+ Wide array of skills and experience at different stages of the research process, including web scraping, human trials, data warehousing and architecture, exploratory data analysis, machine learning, and data visualization.
+ Experience creating automated research pipelines, from gathering to visualization.
+ Passion for building systems that can be maintained and monitored with style and ease.
+}
+
+\section{Education}
+\cventry{2019 -- 2021}{Master of Arts in Computational Social Science}{University of Chicago}{Chicago, IL}{\linebreak GPA: 3.80}{Thesis on Deep Learning and Human Memory.}
+\cventry{2015 -- 2019}{Bachelor of Arts in Economics and Physics}{Washington University in St. Louis}{ St. Louis, MO}{\linebreak GPA: 3.41}{Minor in the Philosophy of Science}
+
+\section{Experience}
+
+\cventry{2023 --}{Freelance Researcher}{University of Chicago, Department of Psychology}{Chicago, IL}{}{Built apparatus for data gathering on older adults and people with mild cognitive impairments with David Gallo. Developing a novel approach for estimating auditory memorability with Wilma A. Bainbridge.}
+
+\cventry{2022 --}{Predoctoral Researcher}{\href{https://css.seas.upenn.edu/}{Computational Social Science, University of Pennsylvania}}{Philadelphia, PA}{}{Researched topics relating to the News, especially how the apparent "Speed of News" has been increasing, how economic narratives are presented in the media, and how stories are framed using quotations to "launder" extreme views. Developed the \textit{Living Journal Toolkit}, a collection of tools for publishing live updating dashboards associated with papers, blog posts using a novel statistical and visualization package, and interactive papers. Developed the \textit{News Observatory}, a system for monitoring news websites and collecting analyzable data about their publication behavior.}
+
+\cventry{2021 -- 2022}{Predoctoral Researcher}{\href{https://www.microsoft.com/en-us/research/lab/microsoft-research-new-york/}{Microsoft Research Lab -- New York City}}{New York, NY}{}{Researched topics related to the News: how events are framed by different publishers, the length of the news cycle, and people's perceptions of factualness. Designed and built systems for gathering perceptions of statistical phenomena. Researched the process of conversion due to advertising. Teaching assistant for the MSR NYC Data Science Summer School.}
+
+\cventry{2020 -- 2021}{Research Assistant}{\href{https://brainbridgelab.uchicago.edu/}{University of Chicago: Brain Bridge Lab}}{Chicago, IL}{}{Researched the efficacy of deep learning techniques to estimate the probability that a subject will remember an image. Used these models to create a better understanding of the features of an image that are common among highly memorable images. Developed \textit{ResMem}, a novel deep-learning based model to estimate the memorability of images. With Prof. Wilma A. Bainbridge.}
+
+\cventry{2020 -- 2021}{Research Assistant}{\href{https://voices.uchicago.edu/memorylab/}{University of Chicago: Memory Lab}}{Chicago, IL}{}{Developed an online experiment to generate pilot data for the development of a computer assisted testing program for cognitive decline. Built in JSPsych and tested on prolific and a selection of older adults through a partnership with Rush University, the experiment is designed to see if sufficient information about one's cognitive state can be extracted with a minimal amount of memory and cognitive tests in a number of domains. With Prof. David Gallo.}
+
+\cventry{2019}{Freelance Data Scientist}{Upwork}{ St. Louis, MO and Chicago, IL}{}{Offered freelance data analysis services to companies. Projects include building systems for automatic time-series analysis, data visualization and analysis, natural language processing analysis of surveys, and consulting on larger projects.
+\textbf{Jobs Included:}
+\begin{itemize}
+\item Interviewing Potential Full-Time Data Scientists
+\item Building Statistical Learning Tools
+\item Natural Language Processing Analysis
+\item ML Model Development and Deployment
+\end{itemize}}
+
+\section{Skills}
+
+\def\arraystretch{0}
+\raggedleft
+\begin{tabularx}{.9\textwidth}{>{\center\arraybackslash}X >{\center\arraybackslash}X >{\center\arraybackslash}X}
+	Machine Learning & Natural Language Processing & Data Mining \\
+	Network Analysis & Statistics and Statistical Learning & Deep Learning \\
+	Cloud Computing & Web Development & Unix \\
+	Data Visualization & Data Scraping & Philosophy of Science \\
+	Econometric Models & Systems Analysis & Advanced Mathematics
+\end{tabularx}
+
+\section{Languages, Packages, and Frameworks}
+\def\arraystretch{0}
+\raggedleft
+\begin{tabularx}{.9\textwidth}{>{\center\arraybackslash}X >{\center\arraybackslash}X >{\center\arraybackslash}X}
+Python & JavaScript & Julia \\
+R & Stata & Mathematica \\
+NLTK & PyTorch & Sci-kit Learn \\
+SciPy & Numpy & Pandas \\
+D3.js & MatPlotLib & ggplot2 \\
+Linux & Rust & Haskell \\
+
+\end{tabularx}
+\end{document}

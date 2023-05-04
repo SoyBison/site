@@ -6,7 +6,7 @@ import { MTLLoader } from
 'three/addons/loaders/MTLLoader.js';
 
 $(document).ready(function() {
-  let BEANS = 48;
+  let BEANS = 256;
 
   let container = document.getElementById('featured-dataviz');
   let renderer = new THREE.WebGLRenderer({antialias: true, alpha: true});
@@ -15,34 +15,9 @@ $(document).ready(function() {
   container.appendChild(renderer.domElement);
   let scene = new THREE.Scene();
   let camera = new THREE.PerspectiveCamera(90, container.clientWidth / container.clientHeight, 0.1, 1000);
-
   scene.add(camera);
-  let loader = new STLLoader();
-  let beanObjs = new Array();
-  let beans = new Array();
-  loader.load("models/bean.stl", function(geom) {
-    for (let i = 1; i < BEANS+1; i++) {
-      let bean = new THREE.Object3D();
-      let mesh = new THREE.Mesh(geom, new THREE.MeshPhysicalMaterial(
-        {color: 0x180C02, roughness: 0.5, flatShading: true, metalness: 0.1}
-      ));
-      bean.add(mesh.clone());
-      bean.position.set(17, 0, 0);
-      bean.scale.set(0.5, 0.5, 0.5);
-      let beanObj = new THREE.Object3D();
-      beanObj.add(bean);
-      if(i % 2 == 0) {
-        beanObj.rotation.y = 2 * i  * Math.PI / BEANS;
-      } else {
-        beanObj.rotation.y = - 2 * i * Math.PI / BEANS;
-      }
-      beanObj.rotation.x = 2 * i * Math.PI / BEANS;
-      scene.add(beanObj);
-      beans.push(bean);
-      beanObjs.push(beanObj);
-      scene.add(beanObj);
-    }
-  });
+
+  // Globe
   let globe_loader = new MTLLoader();
   let globe = new THREE.Object3D();
   globe_loader.load("models/lpEarth.mtl", function(mat) {
@@ -54,12 +29,36 @@ $(document).ready(function() {
     })
   })
   globe.scale.set(.24, .24, .24);
-  globe.position.set(0, -10, -10);
+  globe.position.set(0, -12, -10);
   globe.rotation.x = Math.PI / 6;
   globe.reflectivity = 1;
-
-
   scene.add(globe);
+  // Beans
+  let loader = new STLLoader();
+  let beans = new Array();
+  let plane = new THREE.Plane();
+  let point = new THREE.Vector3();
+  loader.load("models/bean.stl", function(geom) {
+    for (let i = 1; i < BEANS+1; i++) {
+      let bean = new THREE.Object3D();
+      let mesh = new THREE.Mesh(geom, new THREE.MeshPhysicalMaterial(
+        {color: 0x180C02, roughness: 0.7, flatShading: true, metalness: 0.0}
+      ));
+      bean.add(mesh.clone());
+      bean.scale.set(0.2, 0.2, 0.2);
+      bean.angle = new THREE.Vector3(Math.random(), Math.random(), Math.random()).normalize();
+      bean.orbitSpeed = (Math.random() * 0.05) + 0.01;
+      if (Math.random() > 0.5) bean.orbitSpeed *= -1;
+      if (Math.random() > 0.5) bean.angle = bean.angle.cross(new THREE.Vector3(0, 1, 0));
+      plane.normal.copy(bean.angle);
+      point.set(Math.random(), Math.random(), Math.random());
+      plane.projectPoint(point, bean.position);
+      bean.position.setLength(Math.floor(Math.random() * 5) + 15);
+      bean.position.applyAxisAngle(bean.angle, Math.random() / 10);
+      scene.add(bean);
+      beans.push(bean);
+    }
+  });
   let coloredIntensity = 7;
 
   let ambi = new THREE.AmbientLight(0xffffff, 2)
@@ -73,18 +72,23 @@ $(document).ready(function() {
   camera.position.x = 0;
   camera.position.y = -10;
   camera.lookAt(0, 0, 0);
+  function updateBeans(){
+    let obj = null;
+    for(let i = 1; i < BEANS; i++){
+      obj = beans[i];
+      obj.position.applyAxisAngle(obj.angle, obj.orbitSpeed);
+    }
+  };
 
   function animate() {
     requestAnimationFrame(animate);
     camera.aspect = container.clientWidth / container.clientHeight;
     camera.updateProjectionMatrix();
-    beanObjs.forEach(function(bean) {
-      bean.rotation.y += 0.01;
-    })
+    updateBeans();
     beans.forEach(function(bean) {
-      bean.rotation.y += 0.01;
-      bean.rotation.x += 0.01;
-      bean.rotation.z += 0.01;
+      bean.rotation.y += 0.11;
+      bean.rotation.x += 0.11;
+      bean.rotation.z += 0.11;
     })
     globe.rotation.y += 0.0075;
     renderer.render(scene, camera);
