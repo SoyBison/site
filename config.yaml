@@ -50,7 +50,7 @@ menu:
 
 params:
   author: Coen D. Needell
-  description: 
+  description:
   style: dark-without-switcher
 
   ongoingProjects: ["news_observatory.md", "living_journal.md", "nvim_data.md"]
@@ -60,9 +60,25 @@ params:
     - id: linkedin
       url: "https://www.linkedin.com/in/coen-needell-b4503216a/"
     - id: blank
-    - id: cv
-      url: "/files/cv.pdf"
   rssAsSocialIcon: true
+  resumes:
+    - id: CV
+      title: CV
+      url: /files/cv.pdf
+      icon: cv
+    - id: Data Science
+      title: Data Science
+      url: /files/resume_ds.pdf
+      icon: science
+    - id: Data Engineering
+      title: Data Engineering
+      url: /files/resume_de.pdf
+      icon: engineering
+    - id: Publications
+      title: Publications
+      url: /files/publications.pdf
+      icon: publications
+
 
 taxonomies:
   tags: tags

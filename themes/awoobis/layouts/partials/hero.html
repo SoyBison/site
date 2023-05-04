@@ -1,18 +1,11 @@
-{{ partial "resource.html" (dict "context" . "type" "js" "filename" "js/hero.js") }}
+<script src="js/hero.js" type="module"></script>
 <script src="https://d3js.org/d3.v6.js"></script>
 <div class="figure-container hero">
 
-    <h2 class="hero"> Featured Module: three.js Material and Lighting Demo </h2>
+    <h2 class="hero"> Featured Module: Coffee Makes the World Go Round</h2>
     <div id="featured-dataviz">
     </div>
     <p class="hero commentary homepage-content card">
-    Here we use <a href="https://threejs.org/">three.js</a> to create a glass icosahedron with a slight frosting effect.
-The wireframe is added by rendering a thin cylinder across each vertex.
-(WebGL's built-in wireframes cannot consistently render lines of variable width, modeling them as cylinders looks much better).
-We then add three colored lights to the plane perpendicular to the camera, angled at 120 degrees.
-Using the <a href="https://threejs.org/docs/?q=Physical#api/en/materials/MeshPhysicalMaterial">Physical Material</a> feature, we add a frosted effect, a thickness, and a high index of refractivity to accentuate the refraction of the wireframe.
-The colored light trick is much more obvious if we leave specular highlights alone, but if we set them to 0, we won't get any pure tone glare.
-The final code can be inspected <a href="https://github.com/SoyBison/site/blob/master/assets/js/hero.js">here</a>.
-I'm excited to use these techniques for data visualization and other toys in the future.
+    A short demo showing how a dataset (in this case randomly generated) can be used to control arbitrary animation behavior. Here we randomly assign each bean a position, orbital plane, and orbital speed. Each time-step, we calculate the bean's new position on the plane. I found that due to natural non-linearities in polar coordinates, certain angles wouldn't be covered by a random normalized angle vector. By randomly choosing beans and crossing their orbital plane with the y axis, we can create the illusion of a more uniform global bean distribution.
     </p>
 <div>

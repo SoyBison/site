@@ -1,14 +1,4 @@
-import { GLTFLoader } from
-'three/addons/loaders/GLTFLoader.js';
-
-console.log("owo")
 $(document).ready(function() {
-  let loader = new GLTFLoader();
-  let model = null;
-  loader.load("assets/gltf/bean.gltf", function(gltf) {
-    model = gltf.scene;
-  });
-  console.log(model);
 
   let container = document.getElementById('featured-dataviz');
   let renderer = new THREE.WebGLRenderer({antialias: true, alpha: true});
@@ -25,8 +15,6 @@ $(document).ready(function() {
   let scene = new THREE.Scene();
   let camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
   scene.add(camera);
-  scene.add(model);
-  camera.lookAt(model);
 
   let geometry = new THREE.IcosahedronGeometry(10, 1);
   let material = new THREE.MeshPhysicalMaterial({

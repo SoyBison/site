@@ -1,0 +1,19 @@
+# 3ds Max Wavefront OBJ Exporter v0.97b - (c)2007 guruware
+# File Created: 06.06.2019 11:50:08
+
+newmtl lpEarthMat
+	Ns 100.0000
+	Ni 1.6000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.5000 0.5000 0.5000
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka textures/lp_earth_Diffuse.png
+	map_Kd textures/lp_earth_Diffuse.png
+	map_Ks textures/lp_earth_Specular.png
+	map_bump textures/lp_earth_Normal.png
+	bump textures/lp_earth_Normal.png
