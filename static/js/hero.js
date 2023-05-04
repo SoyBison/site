@@ -31,13 +31,12 @@ $(document).ready(function() {
       bean.scale.set(0.5, 0.5, 0.5);
       let beanObj = new THREE.Object3D();
       beanObj.add(bean);
-      //if(i % 2 == 0) {
-        //beanObj.rotation.x = (i / 2) * Math.PI / BEANS;
-      //} else {
-        //beanObj.rotation.x = - (i / 2) * Math.PI / BEANS;
-      //}
+      if(i % 2 == 0) {
+        beanObj.rotation.y = 2 * i  * Math.PI / BEANS;
+      } else {
+        beanObj.rotation.y = - 2 * i * Math.PI / BEANS;
+      }
       beanObj.rotation.x = 2 * i * Math.PI / BEANS;
-      beanObj.rotation.y = 2 * i * Math.PI / BEANS;
       scene.add(beanObj);
       beans.push(bean);
       beanObjs.push(beanObj);
