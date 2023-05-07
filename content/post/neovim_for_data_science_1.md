@@ -290,7 +290,7 @@ vim.cmd [[ colorscheme catppuccin ]]
 The file tree helps us jump around from document to document easily. 
 I like `nvim-tree` because it's fairly similar to VSCode's file explorer and has decent built-in git integration.
 The line fills a similar role to the status bar in VSCode. 
-Tabs are natively supported by neovim, but they're not very featureful, so we'll also install `barbar`.
+Tabs are natively supported by neovim, but they're not very featureful, so we'll also install `bufferline`.
 I generally lump these guys together because they're all simple UI mods.
 
 Here I pass a table to `use` instead of just a string: yet another example of Lua's flexibility.
@@ -335,13 +335,10 @@ require("nvim-tree").setup{
     },
 }
 require'bufferline'.setup{
-    animation = false, -- sorry man, but the animations are ugly. 
-    -- It's not your fault, its just that it's a tui, and animations
-    -- are really hard to make look good in text mode.
-    closable = false, 
-    -- gets rid of the clickable x to close a tab (not very vimmy)
-    auto_hide = true 
-    -- if you only edit one file, tabs should not appear imo
+    options = {
+        buffer_close_icon = '',
+        always_show_bufferline = false,
+    }
 }
 
 vim.keymap.set('n', '<c-n>', ':NvimTreeToggle<CR>')
