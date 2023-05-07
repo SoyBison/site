@@ -372,6 +372,7 @@ header nav a:hover {
   transition-duration: 0.2s;
   transform: translate(-0em, 0);
   padding: 0.75em;
+  postion: relative;
 }
 .resume-container {
   display: inline-block;
@@ -393,7 +394,7 @@ header nav a:hover {
   transform: translate(-14.25em, 1.0em) rotate(-9deg);
 }
 .resume-icon:hover {
-  color: var(--rosewater);
+  stroke: var(--rosewater);
 }
 
 .social-icons li {
@@ -1268,6 +1269,73 @@ input[type=text] {
 @media (max-width: 500px) {
     .hero-container{
         /*display: none;*/
+    }
+    .resume-icon {
+      background-color: var(--mantle);
+      border-radius: 10px;
+      z-index: 10;
+      position: relative;
+      box-shadow: 10px 10px 15px var(--crust);
+      border-top: 2px solid var(--surface0);
+      border-left: 1px solid var(--surface0);
+    }
+    .resume-links {
+      z-index: 10;
+    }
+  .resume-container:hover .resume-icon:nth-child(1) {
+    transform: translate(-15em, 7.25em) rotate(0deg);
+  }
+  .resume-container:hover .resume-icon:nth-child(2) {
+    transform: translate(-14.75em, 7.5em) rotate(-3deg);
+  }
+  .resume-container:hover .resume-icon:nth-child(3) {
+    transform: translate(-14.50em, 7.75em) rotate(-6deg);
+  }
+  .resume-container:hover .resume-icon:nth-child(4) {
+    transform: translate(-14.25em, 8.0em) rotate(-9deg);
+  }
+  .resume-container:hover ~ #pfp-container {
+    transform: translate(-20vw, 0vh);
+  }
+    div.pfp {
+        flex-direction: column;
+        justify-content: start;
+    }
+    #pfp-container {
+        flex: 0 10 35vw;
+        height: 100%;
+        width: 25vw;
+        margin: 3vw;
+        transform: translate(-0vw, -5vw);
+    }
+    #pfp-container div {
+        height: 100%;
+        width: auto;
+        aspect-ratio: 1;
+    }
+
+    #pfp-container div.pfp-bottom {
+        background-image: url("/media/git_avatar.png");
+        z-index: 0;
+        opacity: 1;
+        border-top: 2px solid var(--surface0);
+        border-left: 1px solid var(--surface0);
+        box-shadow: 10px 10px 15px var(--crust);
+        background-size: cover;
+    }
+    #pfp-container div.pfp-top {
+        z-index: -1;
+        background-image: url("/media/avatar.jpeg");
+        background-position: center;
+        background-size: 120%;
+    }
+    #pfp-container:hover .pfp-top {
+        transform: translate(0%, 8vh);
+        background-position: 5px center;
+    }
+    #pfp-container:hover .pfp-bottom {
+        transform: translate(0%, -8vh);
+        background-position: 0px center;
     }
 }
 
