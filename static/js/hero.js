@@ -48,6 +48,8 @@ $(document).ready(function() {
       bean.scale.set(0.2, 0.2, 0.2);
       bean.angle = new THREE.Vector3(Math.random(), Math.random(), Math.random()).normalize();
       bean.orbitSpeed = (Math.random() * 0.05) + 0.01;
+      bean.rotspeed = (Math.random() * 0.05) + 0.1;
+      bean.rotvec = new THREE.Vector3(Math.random() < 0.5 ? 1 : -1, Math.random() < 0.5 ? 1 : -1, Math.random() < 0.5 ? 1 : -1);
       if (Math.random() > 0.5) bean.orbitSpeed *= -1;
       if (Math.random() > 0.5) bean.angle = bean.angle.cross(new THREE.Vector3(0, 1, 0));
       plane.normal.copy(bean.angle);
@@ -76,7 +78,9 @@ $(document).ready(function() {
     let obj = null;
     for(let i = 1; i < BEANS; i++){
       obj = beans[i];
-      obj.position.applyAxisAngle(obj.angle, obj.orbitSpeed);
+      if (obj != undefined && obj.position != undefined && obj.position != null) {
+        obj.position.applyAxisAngle(obj.angle, obj.orbitSpeed);
+      }
     }
   };
 
@@ -86,9 +90,9 @@ $(document).ready(function() {
     camera.updateProjectionMatrix();
     updateBeans();
     beans.forEach(function(bean) {
-      bean.rotation.y += 0.11;
-      bean.rotation.x += 0.11;
-      bean.rotation.z += 0.11;
+      bean.rotation.x += bean.rotspeed * bean.rotvec.x;
+      bean.rotation.y += bean.rotspeed * bean.rotvec.y;
+      bean.rotation.z += bean.rotspeed * bean.rotvec.z;
     })
     globe.rotation.y += 0.0075;
     renderer.render(scene, camera);
