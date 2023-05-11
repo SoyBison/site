@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.4.14)  4 MAY 2023 10:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.4.4)  11 MAY 2023 12:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**resume_ds
-(./resume_ds.tex
+**/home/coen/Documents/Personal/site/static/files/resume_ds.tex
+(/home/coen/Documents/Personal/site/static/files/resume_ds.tex
 LaTeX2e <2022-11-01> patch level 1
 L3 programming layer <2023-02-22>
 (/usr/share/texmf-dist/tex/latex/moderncv/moderncv.cls
@@ -859,22 +859,25 @@ LaTeX Font Info:    Font shape `OT1/cmss/m/it' in size <9> not available
 /enc/dvips/fontawesome5/fa5free2.enc}{/usr/share/texmf-dist/fonts/enc/dvips/fon
 tawesome5/fa5free1.enc}{/usr/share/texmf-dist/fonts/enc/dvips/fontawesome5/fa5b
 rands0.enc} <./avatar.jpeg>] [2{/usr/share/texmf-dist/fonts/enc/dvips/fontaweso
-me5/fa5free0.enc}] [3] (./resume_ds.aux)
+me5/fa5free0.enc}] (./resume_ds.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 9.12pt have occurred.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
 Package rerunfilecheck Info: File `resume_ds.out' has not changed.
 (rerunfilecheck)             Checksum: 5F1574F075E84177C1E8153AD365743E;564.
  ) 
 Here is how much of TeX's memory you used:
  26048 strings out of 476025
- 499689 string characters out of 5796532
+ 499825 string characters out of 5796533
  1882388 words of memory out of 5000000
  45966 multiletter control sequences out of 15000+600000
  523436 words of font info for 105 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 129i,13n,122p,1002b,470s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 129i,13n,122p,1054b,470s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texmf-dist/fonts/type1/public/fontawesome5/FontAwesome5Brands-Reg
 ular.pfb></usr/share/texmf-dist/fonts/type1/public/fontawesome5/FontAwesome5Fre
 e-Regular.pfb></usr/share/texmf-dist/fonts/type1/public/fontawesome5/FontAwesom
@@ -885,10 +888,10 @@ nts/type1/public/amsfonts/cm/cmss9.pfb></usr/share/texmf-dist/fonts/type1/publi
 c/amsfonts/cm/cmssbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/c
 m/cmssi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi17.pfb
 ></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi9.pfb>
-Output written on resume_ds.pdf (3 pages, 214241 bytes).
+Output written on resume_ds.pdf (2 pages, 213978 bytes).
 PDF statistics:
- 121 PDF objects out of 1000 (max. 8388607)
- 90 compressed objects within 1 object stream
- 9 named destinations out of 1000 (max. 500000)
+ 117 PDF objects out of 1000 (max. 8388607)
+ 87 compressed objects within 1 object stream
+ 8 named destinations out of 1000 (max. 500000)
  36922 words of extra memory for PDF output out of 42996 (max. 10000000)
 
