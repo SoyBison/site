@@ -95,8 +95,8 @@ $(document).ready(function() {
   d3.csv("data/cloud_regions.csv").then(function(data) {
 
     data.forEach(function(d) {
-      let xjit = (Math.random() - .5) * 5;
-      let yjit = (Math.random() - .5) * 5;
+      let xjit = (Math.random() - .5) * 3;
+      let yjit = (Math.random() - .5) * 3;
       scene.add(data_point(-d.lat + xjit, +d.lon + yjit, COLORS[d.provider]));
     })
   })
