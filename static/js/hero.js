@@ -1,12 +1,15 @@
-import { STLLoader } from
-'three/addons/loaders/STLLoader.js';
 import { OBJLoader } from
 'three/addons/loaders/OBJLoader.js';
 import { MTLLoader } from
 'three/addons/loaders/MTLLoader.js';
+import { OrbitControls } from
+'three/addons/controls/OrbitControls.js';
+import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
+import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
+import { SMAAPass } from 'three/addons/postprocessing/SMAAPass.js';
 
 $(document).ready(function() {
-  let BEANS = 256;
 
   let container = document.getElementById('featured-dataviz');
   let renderer = new THREE.WebGLRenderer({antialias: true, alpha: true});
@@ -15,7 +18,25 @@ $(document).ready(function() {
   container.appendChild(renderer.domElement);
   let scene = new THREE.Scene();
   let camera = new THREE.PerspectiveCamera(90, container.clientWidth / container.clientHeight, 0.1, 1000);
-  scene.add(camera);
+  const controls = new OrbitControls(camera, renderer.domElement);
+  controls.update()
+  //scene.add(camera);
+  //const axesHelper = new THREE.AxesHelper(100);
+  //scene.add(axesHelper);
+  const renderPass = new RenderPass(scene, camera);
+  const bloomPass = new UnrealBloomPass(new THREE.Vector2(container.clientWidth, container.clientHeight), 1.5, 0.4, 0.85);
+  bloomPass.threshold = 0.5;
+  bloomPass.strength = 1;
+  bloomPass.radius = 0;
+
+  const smaaPass = new SMAAPass( window.innerWidth * renderer.getPixelRatio(), window.innerHeight * renderer.getPixelRatio() );
+
+  const composer = new EffectComposer(renderer);
+  composer.addPass(renderPass);
+  composer.addPass(bloomPass);
+  composer.addPass(smaaPass);
+  scene.background = new THREE.Color(0x1e1e2e);
+
 
   // Globe
   let globe_loader = new MTLLoader();
@@ -25,77 +46,89 @@ $(document).ready(function() {
     let objloader = new OBJLoader();
     objloader.setMaterials(mat);
     objloader.load("models/lpEarth.obj", function(object) {
+      object.scale.set(0.25, 0.25, 0.25);
       globe.add(object);
     })
   })
-  globe.scale.set(.24, .24, .24);
-  globe.position.set(0, -12, -10);
-  globe.rotation.x = Math.PI / 6;
-  globe.reflectivity = 1;
-  scene.add(globe);
-  // Beans
-  let loader = new STLLoader();
-  let beans = new Array();
-  let plane = new THREE.Plane();
-  let point = new THREE.Vector3();
-  loader.load("models/bean.stl", function(geom) {
-    for (let i = 1; i < BEANS+1; i++) {
-      let bean = new THREE.Object3D();
-      let mesh = new THREE.Mesh(geom, new THREE.MeshPhysicalMaterial(
-        {color: 0x180C02, roughness: 0.7, flatShading: true, metalness: 0.0}
-      ));
-      bean.add(mesh.clone());
-      bean.scale.set(0.2, 0.2, 0.2);
-      bean.angle = new THREE.Vector3(Math.random(), Math.random(), Math.random()).normalize();
-      bean.orbitSpeed = (Math.random() * 0.05) + 0.01;
-      bean.rotspeed = (Math.random() * 0.05) + 0.1;
-      bean.rotvec = new THREE.Vector3(Math.random() < 0.5 ? 1 : -1, Math.random() < 0.5 ? 1 : -1, Math.random() < 0.5 ? 1 : -1);
-      if (Math.random() > 0.5) bean.orbitSpeed *= -1;
-      if (Math.random() > 0.5) bean.angle = bean.angle.cross(new THREE.Vector3(0, 1, 0));
-      plane.normal.copy(bean.angle);
-      point.set(Math.random(), Math.random(), Math.random());
-      plane.projectPoint(point, bean.position);
-      bean.position.setLength(Math.floor(Math.random() * 5) + 15);
-      bean.position.applyAxisAngle(bean.angle, Math.random() / 10);
-      scene.add(bean);
-      beans.push(bean);
-    }
-  });
-  let coloredIntensity = 7;
+  globe.translateX(-0.25);
+  globe.translateZ(0);
+  globe.translateY(-14.5);
+  //globe.rotation.x = Math.PI / 6;
+  //globe.reflectivity = 1;
+  let center_geom = new THREE.SphereGeometry(15, 32, 32);
+  let center_mat = new THREE.MeshPhysicalMaterial({color: 0xffffff, transparent: true, opacity: 0.5});
+  let center_mesh = new THREE.Mesh(center_geom, center_mat);
+  center_mesh.position.set(0, 0, 0);
+  //scene.add(center_mesh);
 
-  let ambi = new THREE.AmbientLight(0xffffff, 2)
+  // Data Points
+  let data_point = function(lat, lon, color=0xffffff, size=2) {
+    let globe_r = 13;
+    let geometry = new THREE.CylinderGeometry(.1, 0, size * 2, 32);
+    //let geometry = new THREE.SphereGeometry(1, 32, 32);
+    //geometry.translate(0, 5, 0);
+    //geometry.rotateX(Math.PI / 2);
+    let material = new THREE.MeshLambertMaterial({color: color, emmissive: 0xffffff});
+    let mesh = new THREE.Mesh(geometry, material);
+    let rad_lat = (lat + 90) * Math.PI / 180;
+    let rad_lon = (lon) * Math.PI / 180;
+    mesh.position.z = (globe_r + size) * Math.sin(rad_lat) * Math.cos(rad_lon);
+    mesh.position.x = (globe_r + size) * Math.sin(rad_lat) * Math.sin(rad_lon);
+    mesh.position.y = (globe_r + size) * Math.cos(rad_lat);
+    //mesh.position.add(center_mesh.position);
+    mesh.lookAt(0, 0, 0);
+    mesh.rotateX(Math.PI / 2);
+    //mesh.rotation.y += Math.PI / 2;
+    //mesh.setRotationFromAxisAngle(mesh.position.clone().normalize(), Math.PI / 2 );
+    return mesh;
+  }
+  let COLORS = {
+    "Alibaba Cloud": 0xffffff,
+    "Amazon Web Services": 0xffaa00,
+    "Google Cloud": 0xe37b98,
+    "Huawei Cloud": 0xdc2222,
+    "IBM Cloud": 0x001d6c,
+    "Microsoft Azure": 0x33ff33,
+    "Oracle Cloud": 0xff00ff,
+    "Tencent Cloud": 0x00bfff
+  }
+  d3.csv("data/cloud_regions.csv").then(function(data) {
+
+    data.forEach(function(d) {
+      let xjit = (Math.random() - .5) * 5;
+      let yjit = (Math.random() - .5) * 5;
+      scene.add(data_point(-d.lat + xjit, +d.lon + yjit, COLORS[d.provider]));
+    })
+  })
+  //d3.csv("data/local_zones.csv").then(function(data) {
+    //data.forEach(function(d) {
+      //scene.add(data_point(-d.lat, d.lon, 0x00ff00));
+    //})
+  //})
+
+  scene.add(globe);
+  let coloredIntensity = 2;
+
+  let ambi = new THREE.AmbientLight(0xcba6f7, 1.5)
   scene.add(ambi);
-  let rlight = new THREE.DirectionalLight(0xDAA520, coloredIntensity);
-  rlight.position.set(5, 5, 5);
+  let rlight = new THREE.DirectionalLight(0xcba6f7, coloredIntensity);
+  rlight.position.set(10, 0, 10);
   scene.add(rlight);
   rlight.target = globe;
 
   camera.position.z = 25;
   camera.position.x = 0;
-  camera.position.y = -20;
+  camera.position.y = 10;
   camera.lookAt(0, 0, 0);
-  function updateBeans(){
-    let obj = null;
-    for(let i = 1; i < BEANS; i++){
-      obj = beans[i];
-      if (obj != undefined && obj.position != undefined && obj.position != null) {
-        obj.position.applyAxisAngle(obj.angle, obj.orbitSpeed);
-      }
-    }
-  };
 
   function animate() {
     requestAnimationFrame(animate);
     camera.aspect = container.clientWidth / container.clientHeight;
     camera.updateProjectionMatrix();
-    updateBeans();
-    beans.forEach(function(bean) {
-      bean.rotation.x += bean.rotspeed * bean.rotvec.x;
-      bean.rotation.y += bean.rotspeed * bean.rotvec.y;
-      bean.rotation.z += bean.rotspeed * bean.rotvec.z;
-    })
-    globe.rotation.y += 0.0075;
-    renderer.render(scene, camera);
+    controls.update();
+    //rlight.position.set(camera.position.clone());
+    scene.rotation.y += 0.003;
+    composer.render(scene, camera);
   }
   animate();
 

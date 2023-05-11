@@ -2,10 +2,22 @@
 <script src="https://d3js.org/d3.v6.js"></script>
 <div class="figure-container hero">
 
-    <h2 class="hero"> Featured Module: Coffee Makes the World Go Round</h2>
+  <h2 class="hero"> Featured Module: Where is <em>The Cloud?</em></h2>
     <div id="featured-dataviz">
     </div>
     <p class="hero commentary homepage-content card">
-    A short demo showing how a dataset (in this case randomly generated) can be used to control arbitrary animation behavior. Here we randomly assign each bean a position, orbital plane, and orbital speed. Each time-step, we calculate the bean's new position on the plane. I found that due to natural non-linearities in polar coordinates, certain angles wouldn't be covered by a random normalized angle vector. By randomly choosing beans and crossing their orbital plane with the y axis, we can create the illusion of a more uniform global bean distribution.
+    A small demo showing how to use a dataset to generate a three.js model.
+    This was done using a dataset of cloud data centers retrieved from <a href="https://www.cloudinfrastructuremap.com/">Cloud Infrastructure Map</a>.
+    Code is availible on <a href="https://github.com/soybison/site/tree/master/static/js/hero.js">GitHub</a>.
+    Different providers are shown in different colors.
+    Alibaba Cloud is shown in <span style="color: white">White</span>.
+    Amazon Web Services is shown in <span style="color: #ffaa00">Orange</span>.
+    Google Cloud is shown in <span style="color: #f38ba8">Pink</span>.
+    Huawei Cloud is shown in <span style="color: #dc2222">Red</span>.
+    IBM Cloud is shown in <span style="color: #001d6c; background-color: #f5e0dc; border-radius: 5px"><b>Dark Blue</b></span>.
+    Microsoft Azure is shown in <span style="color: #33ff33">Green</span>.
+    Oracle Cloud is shown in <span style="color: #ff00ff">Purple</span>.
+    Tencent Cloud is shown in <span style="color: #00bbff">Light Blue</span>.
+    Locations are not exact, and a small jitter is applied to prevent overlaps.
     </p>
 <div>
