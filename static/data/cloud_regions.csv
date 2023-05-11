@@ -214,7 +214,7 @@ metro,provider,name,lat,lon
 "Zürich , Switzerland",Google Cloud,europe-west6,47.36667,8.55
 "Zürich , Switzerland",Microsoft Azure,switzerlandnorth,47.36667,8.55
 "Zürich , Switzerland",Oracle Cloud,eu-zurich-1,47.36667,8.55
-"Changhua County , Taiwan",Google Cloud,asia-east1,,24.05,120.51
+"Changhua County , Taiwan",Google Cloud,asia-east1,24.05,120.51
 "Taipei , Taiwan",Microsoft Azure,taiwannorth,25.04776,121.53185
 "Bangkok , Thailand",Alibaba Cloud,ap-southeast-7,13.75398,100.50144
 "Bangkok , Thailand",Amazon Web Services,,13.75398,100.50144
