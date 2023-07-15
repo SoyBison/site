@@ -1,8 +1,8 @@
 ---
 title: "Collaborative Filtering and Innovation: A Case Study from  Steam Recommendations"
 author: Coen D. Needell
-date: 2021-03-14 22:34:40.163 -0500 
-CJKmainfont: Noto Sans CJK SC
+date: "2021-03-14 22:34:00"
+CJKmainfont: "Noto Sans CJK SC"
 math: true
 draft: false
 tags: ["Video Games", "Recommendation Algorithms"]
@@ -26,7 +26,7 @@ From the point of view of the consumer, there are $N$ options of varying quality
 
 As mentioned before, usually services try to solve this problem with Collaborative Filtering. A class of algorithms that compare a user's tastes to other user's tastes to find similarities, and formulate a recommendation based on that. Generally, the algorithms go like this:
 
-```{lang-none}
+```
 given a user, u
 create a vector of u's known tastes
 for u_prime in users:

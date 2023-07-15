@@ -1,5 +1,5 @@
 import { GLTFLoader } from
-'three/addons/loaders/GLTFLoader.js';
+'/three/addons/loaders/GLTFLoader.js';
 
 console.log("owo")
 $(document).ready(function() {
