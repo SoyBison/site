@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.4.14)  26 APR 2023 16:57
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.9.7)  25 SEP 2023 16:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**/home/coen/Documents/Personal/site/static/files/cv
-(/home/coen/Documents/Personal/site/static/files/cv.tex
+**cv
+(./cv.tex
 LaTeX2e <2022-11-01> patch level 1
 L3 programming layer <2023-02-22>
 (/usr/share/texmf-dist/tex/latex/moderncv/moderncv.cls
@@ -899,20 +899,17 @@ dict-ing Im-age Mem-o-ra-bil-ity\OT1/cmss/m/n/10 (+20) ,
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 9.12pt have occurred.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package rerunfilecheck Info: File `cv.out' has not changed.
 (rerunfilecheck)             Checksum: CE2FA0ECD2A7EC6FD6F9D95B8A9F945E;823.
  ) 
 Here is how much of TeX's memory you used:
- 26044 strings out of 476025
- 499605 string characters out of 5796532
+ 26043 strings out of 477985
+ 499463 string characters out of 5840059
  1885388 words of memory out of 5000000
- 45964 multiletter control sequences out of 15000+600000
+ 45711 multiletter control sequences out of 15000+600000
  522620 words of font info for 101 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 129i,13n,122p,1043b,470s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 14 hyphenation exceptions out of 8191
+ 129i,13n,122p,995b,470s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/fontawesome5/FontAwesome5Brands-Reg
 ular.pfb></usr/share/texmf-dist/fonts/type1/public/fontawesome5/FontAwesome5Fre
 e-Regular.pfb></usr/share/texmf-dist/fonts/type1/public/fontawesome5/FontAwesom
@@ -923,7 +920,7 @@ nts/type1/public/amsfonts/cm/cmss9.pfb></usr/share/texmf-dist/fonts/type1/publi
 c/amsfonts/cm/cmssbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/c
 m/cmssi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi9.pfb>
 
-Output written on cv.pdf (3 pages, 214342 bytes).
+Output written on cv.pdf (3 pages, 214534 bytes).
 PDF statistics:
  132 PDF objects out of 1000 (max. 8388607)
  102 compressed objects within 2 object streams
